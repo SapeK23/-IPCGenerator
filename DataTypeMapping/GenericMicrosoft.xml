@@ -1,0 +1,875 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataTypeConverter xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="CommonDatatypeMapping.xsd">
+    <!-- Datastore display name: [Vendor|Tool] ProductName [Databse|Logical|Physical] -->
+	<Tool toolID="MIRGENERIC">
+		<!-- Microsoft SQL Server -->
+		<DataStore type="Microsoft SQL Server" displayName="Microsoft SQL Server Database">
+			<!-- 6.0.0 -->
+			<DataStoreVersion displayName="6.0.0" MajorVersion="6" MinorVersion="0" ReleaseVersion="0">
+				<Import>
+					<DataTypeImportMapping storeDatatype="binary varying" mirDatatype="SQL_VARBINARY"/>
+					<DataTypeImportMapping storeDatatype="binary" mirDatatype="SQL_BINARY"/>
+					<DataTypeImportMapping storeDatatype="bit" mirDatatype="SQL_BOOLEAN"/>
+					<DataTypeImportMapping storeDatatype="char varying" mirDatatype="SQL_VARCHAR"/>
+					<DataTypeImportMapping storeDatatype="char" mirDatatype="SQL_CHAR"/>
+					<DataTypeImportMapping storeDatatype="character varying" mirDatatype="SQL_VARCHAR"/>
+					<DataTypeImportMapping storeDatatype="character" mirDatatype="SQL_CHAR"/>
+					<DataTypeImportMapping storeDatatype="datetime" mirDatatype="SQL_TIMESTAMP"/>
+					<DataTypeImportMapping storeDatatype="dec" mirDatatype="SQL_DECIMAL"/>
+					<DataTypeImportMapping storeDatatype="decimal" mirDatatype="SQL_DECIMAL"/>
+					<DataTypeImportMapping storeDatatype="double precision" mirDatatype="SQL_DOUBLE"/>
+					<DataTypeImportMapping storeDatatype="float" mirDatatype="SQL_FLOAT"/>
+					<DataTypeImportMapping storeDatatype="image" mirDatatype="SQL_BLOB"/>
+					<DataTypeImportMapping storeDatatype="int" mirDatatype="SQL_INTEGER"/>
+					<DataTypeImportMapping storeDatatype="integer" mirDatatype="SQL_INTEGER"/>
+					<DataTypeImportMapping storeDatatype="money" mirDatatype="SQL_NUMERIC"/>
+					<DataTypeImportMapping storeDatatype="numeric" mirDatatype="SQL_NUMERIC"/>
+					<DataTypeImportMapping storeDatatype="real" mirDatatype="SQL_REAL"/>
+					<DataTypeImportMapping storeDatatype="smalldatetime" mirDatatype="SQL_TIMESTAMP"/>
+					<DataTypeImportMapping storeDatatype="smallint" mirDatatype="SQL_SMALLINT"/>
+					<DataTypeImportMapping storeDatatype="smallmoney" mirDatatype="SQL_NUMERIC"/>
+					<DataTypeImportMapping storeDatatype="sysname" mirDatatype="SQL_NVARCHAR"/>
+					<DataTypeImportMapping storeDatatype="text" mirDatatype="SQL_CLOB"/>
+					<DataTypeImportMapping storeDatatype="timestamp" mirDatatype="SQL_TIMESTAMP"/>
+					<DataTypeImportMapping storeDatatype="tinyint" mirDatatype="SQL_TINYINT"/>
+					<DataTypeImportMapping storeDatatype="varbinary" mirDatatype="SQL_VARBINARY"/>
+					<DataTypeImportMapping storeDatatype="varchar" mirDatatype="SQL_VARCHAR"/>
+				</Import>
+				<Export>
+					<DataTypeExportMapping mirDatatype="undefined" storeDatatype="varchar" hasLength="true"/>	
+					<DataTypeExportMapping mirDatatype="AUTOINCREMENT" storeDatatype="numeric" hasLength="true" hasScale="true"/>
+					<DataTypeExportMapping mirDatatype="SQL_BIGINT" storeDatatype="integer"/>			
+					<DataTypeExportMapping mirDatatype="SQL_BINARY" storeDatatype="binary" hasLength="true"/>
+					<DataTypeExportMapping mirDatatype="SQL_BLOB" storeDatatype="varbinary">
+						<DataTypeExportOption nativeType="image" storeDatatype="image"/>
+						<DataTypeExportOption nativeType="picture" storeDatatype="image"/>
+						<DataTypeExportOption nativeType="graphic" storeDatatype="image"/>
+						<DataTypeExportOption nativeType="bitmap" storeDatatype="image"/>
+					</DataTypeExportMapping>
+					<DataTypeExportMapping mirDatatype="SQL_BOOLEAN" storeDatatype="bit"/>
+					<DataTypeExportMapping mirDatatype="SQL_CHAR" storeDatatype="char" hasLength="true">
+						<!-- account for native types -->
+						<DataTypeExportOption nativeType="character" storeDatatype="character"/>
+					</DataTypeExportMapping>
+					<DataTypeExportMapping mirDatatype="SQL_CLOB" storeDatatype="text"/>
+					<DataTypeExportMapping mirDatatype="SQL_DATALINK" storeDatatype="varchar" hasLength="true"/>
+					<DataTypeExportMapping mirDatatype="SQL_DATE" storeDatatype="datetime">
+						<!-- account for native types -->
+						<DataTypeExportOption nativeType="datetime" storeDatatype="datetime"/>
+						<DataTypeExportOption nativeType="smalldatetime" storeDatatype="smalldatetime"/>
+					</DataTypeExportMapping>
+					<DataTypeExportMapping mirDatatype="SQL_DECIMAL" storeDatatype="decimal" hasLength="true" hasScale="true">
+						<!-- native types -->
+						<DataTypeExportOption nativeType="dec" storeDatatype="dec"/>
+						<DataTypeExportOption nativeType="numeric" storeDatatype="numeric"/>
+					</DataTypeExportMapping>
+					<DataTypeExportMapping mirDatatype="SQL_DOUBLE" storeDatatype="double precision">
+						<DataTypeExportOption nativeType="float" storeDatatype="float"/>
+					</DataTypeExportMapping>
+					<DataTypeExportMapping mirDatatype="SQL_FLOAT" storeDatatype="float" hasLength="true">
+						<DataTypeExportOption nativeType="real" storeDatatype="real"/>
+					</DataTypeExportMapping>
+					<DataTypeExportMapping mirDatatype="SQL_INTEGER" storeDatatype="integer">
+						<!-- account for native types -->
+						<DataTypeExportOption nativeType="int" storeDatatype="int"/>
+					</DataTypeExportMapping>
+					<DataTypeExportMapping mirDatatype="SQL_INTERVAL_DAY" storeDatatype="datetime"/>
+					<DataTypeExportMapping mirDatatype="SQL_INTERVAL_DAY_TO_HOUR" storeDatatype="datetime"/>
+					<DataTypeExportMapping mirDatatype="SQL_INTERVAL_DAY_TO_MINUTE" storeDatatype="datetime"/>
+					<DataTypeExportMapping mirDatatype="SQL_INTERVAL_DAY_TO_SECOND" storeDatatype="datetime"/>
+					<DataTypeExportMapping mirDatatype="SQL_INTERVAL_HOUR" storeDatatype="datetime"/>
+					<DataTypeExportMapping mirDatatype="SQL_INTERVAL_HOUR_TO_MINUTE" storeDatatype="datetime"/>
+					<DataTypeExportMapping mirDatatype="SQL_INTERVAL_HOUR_TO_SECOND" storeDatatype="datetime"/>
+					<DataTypeExportMapping mirDatatype="SQL_INTERVAL_MINUTE" storeDatatype="datetime"/>
+					<DataTypeExportMapping mirDatatype="SQL_INTERVAL_MINUTE_TO_SECOND" storeDatatype="datetime"/>
+					<DataTypeExportMapping mirDatatype="SQL_INTERVAL_MONTH" storeDatatype="datetime"/>
+					<DataTypeExportMapping mirDatatype="SQL_INTERVAL_SECOND" storeDatatype="datetime"/>
+					<DataTypeExportMapping mirDatatype="SQL_INTERVAL_YEAR" storeDatatype="datetime"/>
+					<DataTypeExportMapping mirDatatype="SQL_INTERVAL_YEAR_TO_MONTH" storeDatatype="datetime"/>
+					<DataTypeExportMapping mirDatatype="SQL_LONGVARBINARY" storeDatatype="varbinary" hasLength="true">
+						<!-- native types -->
+						<DataTypeExportOption nativeType="binary varying" storeDatatype="binary varying"/>
+					</DataTypeExportMapping>
+					<DataTypeExportMapping mirDatatype="SQL_LONGVARCHAR" storeDatatype="text"/>
+					<DataTypeExportMapping mirDatatype="SQL_NCHAR" storeDatatype="char" hasLength="true"/>
+					<DataTypeExportMapping mirDatatype="SQL_NCLOB" storeDatatype="text"/>
+					<DataTypeExportMapping mirDatatype="SQL_NLONGVARCHAR" storeDatatype="text"/>
+					<DataTypeExportMapping mirDatatype="SQL_NUMERIC" storeDatatype="numeric" hasLength="true" hasScale="true">
+						<!-- account for native types -->
+						<DataTypeExportOption nativeType="money" storeDatatype="money"/>
+						<DataTypeExportOption nativeType="smallmoney" storeDatatype="smallmoney"/>
+						<DataTypeExportOption nativeType="currency" storeDatatype="money"/>
+						<DataTypeExportOption nativeType="dollar" storeDatatype="money"/>
+					</DataTypeExportMapping>
+					<DataTypeExportMapping mirDatatype="SQL_NVARCHAR" storeDatatype="varchar" hasLength="true"/>
+					<DataTypeExportMapping mirDatatype="SQL_REAL" storeDatatype="real"/>
+					<DataTypeExportMapping mirDatatype="SQL_REF" storeDatatype="varchar" hasLength="true"/>
+					<DataTypeExportMapping mirDatatype="SQL_SMALLINT" storeDatatype="smallint"/>
+					<DataTypeExportMapping mirDatatype="SQL_TIME" storeDatatype="datetime"/>
+					<DataTypeExportMapping mirDatatype="SQL_TIME_WITH_TIME_ZONE" storeDatatype="datetime"/>
+					<DataTypeExportMapping mirDatatype="SQL_TIMESTAMP" storeDatatype="datetime">
+						<!-- account for native types -->
+						<DataTypeExportOption nativeType="smalldatetime" storeDatatype="smalldatetime"/>
+						<DataTypeExportOption nativeType="timestamp" storeDatatype="timestamp"/>
+					</DataTypeExportMapping>
+					<DataTypeExportMapping mirDatatype="SQL_TIMESTAMP_WITH_TIME_ZONE" storeDatatype="datetime"/>
+					<DataTypeExportMapping mirDatatype="SQL_TINYINT" storeDatatype="tinyint"/>
+					<DataTypeExportMapping mirDatatype="SQL_VARBINARY" storeDatatype="varbinary" hasLength="true"/>
+					<DataTypeExportMapping mirDatatype="SQL_VARCHAR" storeDatatype="varchar" hasLength="true">
+						<!-- account for native types -->
+						<DataTypeExportOption nativeType="char varying" storeDatatype="char varying"/>
+						<DataTypeExportOption nativeType="character varying" storeDatatype="character varying"/>
+						<DataTypeExportOption nativeType="sysname" storeDatatype="sysname"/>
+					</DataTypeExportMapping>
+				</Export>			
+			</DataStoreVersion>
+			
+			<!-- 7.0.0 -->
+			<DataStoreVersion displayName="7.0.0" MajorVersion="7" MinorVersion="0" ReleaseVersion="0">
+				<Import>
+					<DataTypeImportMapping storeDatatype="NATIONAL CHAR VARYING" mirDatatype="SQL_NVARCHAR"/>
+					<DataTypeImportMapping storeDatatype="NATIONAL CHAR" mirDatatype="SQL_NCHAR"/>
+					<DataTypeImportMapping storeDatatype="NATIONAL CHARACTER VARYING" mirDatatype="SQL_NVARCHAR"/>
+					<DataTypeImportMapping storeDatatype="NATIONAL CHARACTER" mirDatatype="SQL_NCHAR"/>
+					<DataTypeImportMapping storeDatatype="NATIONAL TEXT" mirDatatype="SQL_NLONGVARCHAR"/>
+					<DataTypeImportMapping storeDatatype="nchar" mirDatatype="SQL_NCHAR"/>
+					<DataTypeImportMapping storeDatatype="ntext" mirDatatype="SQL_NCLOB"/>
+					<DataTypeImportMapping storeDatatype="nvarchar" mirDatatype="SQL_NVARCHAR"/>
+					<DataTypeImportMapping storeDatatype="sysname" mirDatatype="SQL_NVARCHAR"/>
+					<DataTypeImportMapping storeDatatype="uniqueidentifier" mirDatatype="SQL_BINARY"/>
+				</Import>
+				<Export>
+					<DataTypeExportMapping mirDatatype="AUTOINCREMENT" storeDatatype="uniqueidentifier" hasLength="true" hasScale="true"/>
+					<DataTypeExportMapping mirDatatype="SQL_BINARY" storeDatatype="binary" hasLength="true">
+						<!-- another match -->
+						<DataTypeExportOption nativeType="uniqueidentifier" storeDatatype="uniqueidentifier"/>
+					</DataTypeExportMapping>	
+					<DataTypeExportMapping mirDatatype="SQL_NCHAR" storeDatatype="nchar" hasLength="true">
+						<!-- alternate mappings -->
+						<DataTypeExportOption nativeType="NATIONAL CHAR" storeDatatype="NATIONAL CHAR"/>
+						<DataTypeExportOption nativeType="NATIONAL CHARACTER" storeDatatype="NATIONAL CHARACTER"/>
+					</DataTypeExportMapping>
+					<DataTypeExportMapping mirDatatype="SQL_NCLOB" storeDatatype="ntext"/>
+					<DataTypeExportMapping mirDatatype="SQL_NLONGVARCHAR" storeDatatype="NATIONAL TEXT" hasLength="true"/>
+					<DataTypeExportMapping mirDatatype="SQL_NVARCHAR" storeDatatype="nvarchar" hasLength="true">
+						<!-- alternate mappings -->
+						<DataTypeExportOption nativeType="NATIONAL CHAR VARYING" storeDatatype="NATIONAL CHAR VARYING"/>
+						<DataTypeExportOption nativeType="NATIONAL CHARACTER VARYING" storeDatatype="NATIONAL CHARACTER VARYING"/>
+						<DataTypeExportOption nativeType="sysname" storeDatatype="sysname"/>
+					</DataTypeExportMapping>
+					<DataTypeExportMapping mirDatatype="SQL_REF" storeDatatype="uniqueidentifier"/>
+					<DataTypeExportMapping mirDatatype="SQL_VARBINARY" storeDatatype="varbinary" hasLength="true">
+						<!-- alternate mapping -->
+						<DataTypeExportOption nativeType="binary varying" storeDatatype="binary varying"/>
+						<DataTypeExportOption nativeType="binary" storeDatatype="binary"/>
+						<DataTypeExportOption nativeType="uniqueid" storeDatatype="uniqueidentifier"/>
+					</DataTypeExportMapping>
+				</Export>
+			</DataStoreVersion>
+			
+			<!-- 8.0.0 (2000) -->
+			<DataStoreVersion displayName="8.0.0 (2000)" MajorVersion="8" MinorVersion="0" ReleaseVersion="0">
+				<Import>
+					<DataTypeImportMapping storeDatatype="bigint" mirDatatype="SQL_BIGINT"/>
+					<DataTypeImportMapping storeDatatype="rowversion" mirDatatype="SQL_TIMESTAMP"/>
+					<DataTypeImportMapping storeDatatype="sql_variant" mirDatatype="SQL_VARBINARY"/>
+				</Import>
+				<Export>
+					<DataTypeExportMapping mirDatatype="SQL_BIGINT" storeDatatype="bigint"/>
+					<DataTypeExportMapping mirDatatype="SQL_TIMESTAMP" storeDatatype="timestamp">
+						<DataTypeExportOption nativeType="rowversion" storeDatatype="rowversion"/>
+						<!-- alternate mappings still alive from version 6.0.0 import -->
+						<DataTypeExportOption nativeType="datetime" storeDatatype="datetime"/>
+						<DataTypeExportOption nativeType="smalldatetime" storeDatatype="smalldatetime"/>
+					</DataTypeExportMapping>
+					<DataTypeExportMapping mirDatatype="SQL_VARBINARY" storeDatatype="varbinary" hasLength="true">
+						<!-- alternate and prior mappings -->
+						<DataTypeExportOption nativeType="sql_variant" storeDatatype="sql_variant"/>
+						<DataTypeExportOption nativeType="binary varying" storeDatatype="binary varying"/>
+						<DataTypeExportOption nativeType="binary" storeDatatype="binary"/>
+						<DataTypeExportOption nativeType="uniqueid" storeDatatype="uniqueidentifier"/>
+						<DataTypeExportOption nativeType="variant" storeDatatype="sql_variant"/>
+					</DataTypeExportMapping>
+				</Export>
+			</DataStoreVersion>
+			
+			<!-- 9.0.0 (2005) -->
+			<DataStoreVersion displayName="9.0.0 (2005)" MajorVersion="9" MinorVersion="0" ReleaseVersion="0">
+				<Import>
+					<DataTypeImportMapping storeDatatype="varbinary(max)" mirDatatype="SQL_VARBINARY"/>
+					<DataTypeImportMapping storeDatatype="varchar(max)" mirDatatype="SQL_VARCHAR" />
+					<DataTypeImportMapping storeDatatype="nvarchar(max)" mirDatatype="SQL_NVARCHAR" />
+					<DataTypeImportMapping storeDatatype="xml" mirDatatype="SQL_NLONGVARCHAR" />
+				</Import>
+				<Export>
+					<DataTypeExportMapping mirDatatype="SQL_NLONGVARCHAR" storeDatatype="nvarchar" hasLength="true">
+						<!-- alternate mappings -->
+						<DataTypeExportOption nativeType="national text" storeDatatype="national text"/>
+						<DataTypeExportOption nativeType="xml" storeDatatype="xml"/>
+					</DataTypeExportMapping>
+					<DataTypeExportMapping mirDatatype="SQL_NVARCHAR" storeDatatype="nvarchar" hasLength="true">
+						<DataTypeExportOption nativeType="nvarchar(max)" storeDatatype="nvarchar(max)"/>
+						<!-- alternate mappings -->
+						<DataTypeExportOption nativeType="NATIONAL CHAR VARYING" storeDatatype="NATIONAL CHAR VARYING"/>
+						<DataTypeExportOption nativeType="NATIONAL CHARACTER VARYING" storeDatatype="NATIONAL CHARACTER VARYING"/>
+						<DataTypeExportOption nativeType="sysname" storeDatatype="sysname"/>
+					</DataTypeExportMapping>
+					<DataTypeExportMapping mirDatatype="SQL_VARBINARY" storeDatatype="varbinary" hasLength="true">
+						<!-- alternate and prior mappings -->
+						<DataTypeExportOption nativeType="sql_variant" storeDatatype="sql_variant"/>
+						<DataTypeExportOption nativeType="binary varying" storeDatatype="binary varying"/>
+						<DataTypeExportOption nativeType="binary" storeDatatype="binary"/>
+						<DataTypeExportOption nativeType="varbinary(max)" storeDatatype="varbinary(max)"/>
+						<DataTypeExportOption nativeType="uniqueid" storeDatatype="uniqueidentifier"/>
+						<DataTypeExportOption nativeType="variant" storeDatatype="sql_variant"/>
+					</DataTypeExportMapping>
+					<DataTypeExportMapping mirDatatype="SQL_VARCHAR" storeDatatype="varchar" hasLength="true">
+						<DataTypeExportOption nativeType="varchar(max)" storeDatatype="varchar(max)"/>
+						<!-- alternate and prior mappings -->
+						<DataTypeExportOption nativeType="char varying" storeDatatype="char varying"/>
+						<DataTypeExportOption nativeType="character varying" storeDatatype="character varying"/>
+						<DataTypeExportOption nativeType="sysname" storeDatatype="sysname"/>
+					</DataTypeExportMapping>
+				</Export>
+			</DataStoreVersion>
+			
+			<!-- 10.0.0 (2008) 
+				Details on versions: http://www.microsoft.com/sqlserver/2008/en/us/programmability.aspx -->
+			<DataStoreVersion displayName="10.0.0 (2008)" MajorVersion="10" MinorVersion="0" ReleaseVersion="0">
+				<Import>
+					<DataTypeImportMapping storeDatatype="date" mirDatatype="SQL_DATE"/>
+					<DataTypeImportMapping storeDatatype="datetime2" mirDatatype="SQL_DATE"/>
+					<DataTypeImportMapping storeDatatype="geography" mirDatatype="SQL_BLOB"/>
+					<DataTypeImportMapping storeDatatype="geometry" mirDatatype="SQL_BLOB"/>
+					<DataTypeImportMapping storeDatatype="hierarchyid" mirDatatype="SQL_VARCHAR"/>
+					<DataTypeImportMapping storeDatatype="datetimeoffset" mirDatatype="SQL_TIMESTAMP_WITH_TIME_ZONE"/>
+					<DataTypeImportMapping storeDatatype="time" mirDatatype="SQL_TIME"/>
+				</Import>
+				<Export>
+					<DataTypeExportMapping mirDatatype="SQL_BLOB" storeDatatype="varbinary">
+						<DataTypeExportOption nativeType="image" storeDatatype="image"/>
+						<DataTypeExportOption nativeType="picture" storeDatatype="image"/>
+						<DataTypeExportOption nativeType="graphic" storeDatatype="image"/>
+						<DataTypeExportOption nativeType="bitmap" storeDatatype="image"/>
+						<DataTypeExportOption nativeType="geography" storeDatatype="geography"/>
+						<DataTypeExportOption nativeType="geometry" storeDatatype="geometry"/>
+					</DataTypeExportMapping>
+					<DataTypeExportMapping mirDatatype="SQL_DATE" storeDatatype="date">
+						<DataTypeExportOption nativeType="smalldatetime" storeDatatype="smalldatetime"/>
+						<DataTypeExportOption nativeType="datetime" storeDatatype="datetime"/>
+						<DataTypeExportOption nativeType="datetime2" storeDatatype="datetime2"/>
+					</DataTypeExportMapping>
+					<DataTypeExportMapping mirDatatype="SQL_VARCHAR" storeDatatype="varchar" hasLength="true">
+						<DataTypeExportOption nativeType="varchar" storeDatatype="hierarchyid"/>
+						<DataTypeExportOption nativeType="varchar(max)" storeDatatype="varchar(max)"/>
+						<DataTypeExportOption nativeType="char varying" storeDatatype="char varying"/>
+						<DataTypeExportOption nativeType="character varying" storeDatatype="character varying"/>
+						<DataTypeExportOption nativeType="sysname" storeDatatype="sysname"/>
+					</DataTypeExportMapping>
+					<DataTypeExportMapping mirDatatype="SQL_TIME" storeDatatype="time"/>
+					<DataTypeExportMapping mirDatatype="SQL_TIMESTAMP_WITH_TIME_ZONE" storeDatatype="datetimeoffset"/>
+				</Export>
+			</DataStoreVersion>
+		</DataStore> <!-- Microsoft SQL Server -->
+		
+		<!-- Microsoft SQL Azure -->
+		<DataStore type="Microsoft SQL Azure" displayName="Microsoft SQL Azure Database">
+			<!-- 10.25.0
+				http://msdn.microsoft.com/en-us/library/windowsazure/ee336233.aspx -->
+			<DataStoreVersion displayName="10.25.0" MajorVersion="10" MinorVersion="25" ReleaseVersion="0">
+				<Import>
+					<DataTypeImportMapping storeDatatype="bigint" mirDatatype="SQL_BIGINT"/>
+					<DataTypeImportMapping storeDatatype="binary" mirDatatype="SQL_BINARY"/>
+					<DataTypeImportMapping storeDatatype="bit" mirDatatype="SQL_BOOLEAN"/>
+					<DataTypeImportMapping storeDatatype="char" mirDatatype="SQL_CHAR"/>
+					<DataTypeImportMapping storeDatatype="date" mirDatatype="SQL_DATE"/>
+					<DataTypeImportMapping storeDatatype="datetime" mirDatatype="SQL_TIMESTAMP"/>
+					<DataTypeImportMapping storeDatatype="datetime2" mirDatatype="SQL_DATE"/>
+					<DataTypeImportMapping storeDatatype="datetimeoffset" mirDatatype="SQL_TIMESTAMP_WITH_TIME_ZONE"/>
+					<DataTypeImportMapping storeDatatype="decimal" mirDatatype="SQL_DECIMAL"/>
+					<DataTypeImportMapping storeDatatype="float" mirDatatype="SQL_FLOAT"/>
+					<DataTypeImportMapping storeDatatype="geography" mirDatatype="SQL_BLOB"/>
+					<DataTypeImportMapping storeDatatype="geometry" mirDatatype="SQL_BLOB"/>
+					<DataTypeImportMapping storeDatatype="hierarchyid" mirDatatype="SQL_VARCHAR"/>
+					<DataTypeImportMapping storeDatatype="image" mirDatatype="SQL_BLOB"/>
+					<DataTypeImportMapping storeDatatype="int" mirDatatype="SQL_INTEGER"/>
+					<DataTypeImportMapping storeDatatype="money" mirDatatype="SQL_NUMERIC"/>
+					<DataTypeImportMapping storeDatatype="nchar" mirDatatype="SQL_NCHAR"/>
+					<DataTypeImportMapping storeDatatype="ntext" mirDatatype="SQL_NCLOB"/>
+					<DataTypeImportMapping storeDatatype="numeric" mirDatatype="SQL_NUMERIC"/>
+					<DataTypeImportMapping storeDatatype="nvarchar" mirDatatype="SQL_NVARCHAR"/>
+					<DataTypeImportMapping storeDatatype="real" mirDatatype="SQL_REAL"/>
+					<DataTypeImportMapping storeDatatype="smalldatetime" mirDatatype="SQL_TIMESTAMP"/>
+					<DataTypeImportMapping storeDatatype="smallint" mirDatatype="SQL_SMALLINT"/>
+					<DataTypeImportMapping storeDatatype="smallmoney" mirDatatype="SQL_NUMERIC"/>
+					<DataTypeImportMapping storeDatatype="sql_variant" mirDatatype="SQL_VARBINARY"/>
+					<DataTypeImportMapping storeDatatype="text" mirDatatype="SQL_CLOB"/>
+					<DataTypeImportMapping storeDatatype="time" mirDatatype="SQL_TIME"/>
+					<DataTypeImportMapping storeDatatype="timestamp" mirDatatype="SQL_TIMESTAMP"/>
+					<DataTypeImportMapping storeDatatype="tinyint" mirDatatype="SQL_TINYINT"/>
+					<DataTypeImportMapping storeDatatype="uniqueidentifier" mirDatatype="SQL_BINARY"/>
+					<DataTypeImportMapping storeDatatype="varbinary" mirDatatype="SQL_VARBINARY"/>
+					<DataTypeImportMapping storeDatatype="varchar" mirDatatype="SQL_VARCHAR"/>
+					<DataTypeImportMapping storeDatatype="xml" mirDatatype="SQL_NLONGVARCHAR"/>
+				</Import>
+				<Export>
+					<DataTypeExportMapping mirDatatype="undefined" storeDatatype="varchar" hasLength="true"/>
+					<DataTypeExportMapping mirDatatype="AUTOINCREMENT" storeDatatype="uniqueidentifier"/>
+					<DataTypeExportMapping mirDatatype="SQL_BIGINT" storeDatatype="bigint"/>
+					<DataTypeExportMapping mirDatatype="SQL_BINARY" storeDatatype="binary" hasLength="true">
+						<DataTypeExportOption nativeType="uniqueidentifier" storeDatatype="uniqueidentifier"/>
+					</DataTypeExportMapping>
+					<DataTypeExportMapping mirDatatype="SQL_BLOB" storeDatatype="varbinary">
+						<DataTypeExportOption nativeType="image" storeDatatype="image"/>
+						<DataTypeExportOption nativeType="picture" storeDatatype="image"/>
+						<DataTypeExportOption nativeType="graphic" storeDatatype="image"/>
+						<DataTypeExportOption nativeType="bitmap" storeDatatype="image"/>
+						<DataTypeExportOption nativeType="geography" storeDatatype="geography"/>
+						<DataTypeExportOption nativeType="geometry" storeDatatype="geometry"/>
+					</DataTypeExportMapping>
+					<DataTypeExportMapping mirDatatype="SQL_BOOLEAN" storeDatatype="bit"/>
+					<DataTypeExportMapping mirDatatype="SQL_CHAR" storeDatatype="char" hasLength="true"/>
+					<DataTypeExportMapping mirDatatype="SQL_CLOB" storeDatatype="text"/>
+					<DataTypeExportMapping mirDatatype="SQL_DATALINK" storeDatatype="varchar" hasLength="true"/>
+					<DataTypeExportMapping mirDatatype="SQL_DATE" storeDatatype="date">
+						<DataTypeExportOption nativeType="smalldatetime" storeDatatype="smalldatetime"/>
+						<DataTypeExportOption nativeType="datetime" storeDatatype="datetime"/>
+						<DataTypeExportOption nativeType="datetime2" storeDatatype="datetime2"/>
+					</DataTypeExportMapping>
+					<DataTypeExportMapping mirDatatype="SQL_DECIMAL" storeDatatype="decimal" hasLength="true" hasScale="true">
+						<DataTypeExportOption nativeType="numeric" storeDatatype="numeric"/>
+					</DataTypeExportMapping>
+					<DataTypeExportMapping mirDatatype="SQL_DOUBLE" storeDatatype="float"/>
+					<DataTypeExportMapping mirDatatype="SQL_FLOAT" storeDatatype="float" hasLength="true">
+						<DataTypeExportOption nativeType="real" storeDatatype="real"/>
+					</DataTypeExportMapping>
+					<DataTypeExportMapping mirDatatype="SQL_INTEGER" storeDatatype="int"/>
+					<DataTypeExportMapping mirDatatype="SQL_INTERVAL_DAY" storeDatatype="datetime"/>
+					<DataTypeExportMapping mirDatatype="SQL_INTERVAL_DAY_TO_HOUR" storeDatatype="datetime"/>
+					<DataTypeExportMapping mirDatatype="SQL_INTERVAL_DAY_TO_MINUTE" storeDatatype="datetime"/>
+					<DataTypeExportMapping mirDatatype="SQL_INTERVAL_DAY_TO_SECOND" storeDatatype="datetime"/>
+					<DataTypeExportMapping mirDatatype="SQL_INTERVAL_HOUR" storeDatatype="datetime"/>
+					<DataTypeExportMapping mirDatatype="SQL_INTERVAL_HOUR_TO_MINUTE" storeDatatype="datetime"/>
+					<DataTypeExportMapping mirDatatype="SQL_INTERVAL_HOUR_TO_SECOND" storeDatatype="datetime"/>
+					<DataTypeExportMapping mirDatatype="SQL_INTERVAL_MINUTE" storeDatatype="datetime"/>
+					<DataTypeExportMapping mirDatatype="SQL_INTERVAL_MINUTE_TO_SECOND" storeDatatype="datetime"/>
+					<DataTypeExportMapping mirDatatype="SQL_INTERVAL_MONTH" storeDatatype="datetime"/>
+					<DataTypeExportMapping mirDatatype="SQL_INTERVAL_SECOND" storeDatatype="datetime"/>
+					<DataTypeExportMapping mirDatatype="SQL_INTERVAL_YEAR" storeDatatype="datetime"/>
+					<DataTypeExportMapping mirDatatype="SQL_INTERVAL_YEAR_TO_MONTH" storeDatatype="datetime"/>
+					<DataTypeExportMapping mirDatatype="SQL_LONGVARBINARY" storeDatatype="varbinary" hasLength="true"/>
+					<DataTypeExportMapping mirDatatype="SQL_LONGVARCHAR" storeDatatype="text"/>
+					<DataTypeExportMapping mirDatatype="SQL_NCHAR" storeDatatype="nchar" hasLength="true"/>
+					<DataTypeExportMapping mirDatatype="SQL_NCLOB" storeDatatype="ntext"/>
+					<DataTypeExportMapping mirDatatype="SQL_NLONGVARCHAR" storeDatatype="nvarchar" hasLength="true">
+						<DataTypeExportOption nativeType="xml" storeDatatype="xml"/>
+					</DataTypeExportMapping>
+					<DataTypeExportMapping mirDatatype="SQL_NUMERIC" storeDatatype="numeric" hasLength="true" hasScale="true">
+						<DataTypeExportOption nativeType="money" storeDatatype="money"/>
+						<DataTypeExportOption nativeType="smallmoney" storeDatatype="smallmoney"/>
+						<DataTypeExportOption nativeType="currency" storeDatatype="money"/>
+						<DataTypeExportOption nativeType="dollar" storeDatatype="money"/>
+					</DataTypeExportMapping>
+					<DataTypeExportMapping mirDatatype="SQL_NVARCHAR" storeDatatype="nvarchar" hasLength="true"/>
+					<DataTypeExportMapping mirDatatype="SQL_REAL" storeDatatype="real"/>
+					<DataTypeExportMapping mirDatatype="SQL_REF" storeDatatype="uniqueidentifier"/>
+					<DataTypeExportMapping mirDatatype="SQL_SMALLINT" storeDatatype="smallint"/>
+					<DataTypeExportMapping mirDatatype="SQL_TIME" storeDatatype="time"/>
+					<DataTypeExportMapping mirDatatype="SQL_TIME_WITH_TIME_ZONE" storeDatatype="datetime"/>
+					<DataTypeExportMapping mirDatatype="SQL_TIMESTAMP" storeDatatype="timestamp">
+						<DataTypeExportOption nativeType="datetime" storeDatatype="datetime"/>
+						<DataTypeExportOption nativeType="smalldatetime" storeDatatype="smalldatetime"/>
+						<DataTypeExportOption nativeType="timestamp" storeDatatype="timestamp"/>
+					</DataTypeExportMapping>
+					<DataTypeExportMapping mirDatatype="SQL_TIMESTAMP_WITH_TIME_ZONE" storeDatatype="datetimeoffset" hasLength="true"/>
+					<DataTypeExportMapping mirDatatype="SQL_TINYINT" storeDatatype="tinyint"/>
+					<DataTypeExportMapping mirDatatype="SQL_VARBINARY" storeDatatype="varbinary" hasLength="true">
+						<DataTypeExportOption nativeType="sql_variant" storeDatatype="sql_variant"/>
+						<DataTypeExportOption nativeType="binary" storeDatatype="binary"/>
+						<DataTypeExportOption nativeType="uniqueid" storeDatatype="uniqueidentifier"/>
+						<DataTypeExportOption nativeType="variant" storeDatatype="sql_variant"/>
+					</DataTypeExportMapping>
+					<DataTypeExportMapping mirDatatype="SQL_VARCHAR" storeDatatype="varchar" hasLength="true">
+						<DataTypeExportOption nativeType="hierarchyid" storeDatatype="hierarchyid"/>
+					</DataTypeExportMapping>
+				</Export>
+			</DataStoreVersion>
+		</DataStore> <!-- Microsoft SQL Azure -->
+				
+		<!-- Access 
+			 Details on versions: http://en.wikipedia.org/wiki/Microsoft_Access -->
+		<DataStore type="Access" displayName="Microsoft Access Database">
+			<!--  1.0.0 -->
+			<DataStoreVersion displayName="1.0" MajorVersion="1" MinorVersion="0" ReleaseVersion="0">
+				<Import>
+                    <DataTypeImportMapping storeDatatype="AutoNumber" mirDatatype="AUTOINCREMENT"/>
+                    <DataTypeImportMapping storeDatatype="Byte" mirDatatype="SQL_TINYINT"/>
+                    <DataTypeImportMapping storeDatatype="Counter" mirDatatype="AUTOINCREMENT"/>
+                    <DataTypeImportMapping storeDatatype="Currency" mirDatatype="SQL_NUMERIC"/>
+                    <DataTypeImportMapping storeDatatype="Date" mirDatatype="SQL_DATE"/>
+                    <DataTypeImportMapping storeDatatype="Date/Time" mirDatatype="SQL_TIMESTAMP"/>
+                    <DataTypeImportMapping storeDatatype="DateTime" mirDatatype="SQL_TIMESTAMP"/>
+                    <DataTypeImportMapping storeDatatype="Double" mirDatatype="SQL_DOUBLE"/>
+                    <DataTypeImportMapping storeDatatype="Hyperlink" mirDatatype="SQL_LONGVARCHAR"/>
+                    <DataTypeImportMapping storeDatatype="Integer" mirDatatype="SQL_INTEGER"/>
+                    <DataTypeImportMapping storeDatatype="Long" mirDatatype="SQL_INTEGER"/>
+                    <DataTypeImportMapping storeDatatype="LongBinary" mirDatatype="SQL_LONGVARBINARY"/>
+                    <DataTypeImportMapping storeDatatype="Long Integer" mirDatatype="SQL_INTEGER"/>
+                    <DataTypeImportMapping storeDatatype="LongInteger" mirDatatype="SQL_INTEGER"/>
+                    <DataTypeImportMapping storeDatatype="AutoNumber/Long Integer" mirDatatype="AUTOINCREMENT"/>
+                    <DataTypeImportMapping storeDatatype="Memo" mirDatatype="SQL_LONGVARCHAR"/>
+                    <DataTypeImportMapping storeDatatype="Number" mirDatatype="SQL_DECIMAL"/>
+                    <DataTypeImportMapping storeDatatype="OLE Object" mirDatatype="SQL_LONGVARBINARY"/>
+                    <DataTypeImportMapping storeDatatype="OLE" mirDatatype="SQL_BINARY"/>
+                    <DataTypeImportMapping storeDatatype="Replication ID" mirDatatype="SQL_BINARY"/>
+                    <DataTypeImportMapping storeDatatype="AutoNumber/Replication ID" mirDatatype="AUTOINCREMENT"/>
+                    <DataTypeImportMapping storeDatatype="Single" mirDatatype="SQL_REAL"/>
+                    <DataTypeImportMapping storeDatatype="Text" mirDatatype="SQL_VARCHAR"/>
+                    <DataTypeImportMapping storeDatatype="Yes/No" mirDatatype="SQL_BOOLEAN"/>
+                    <DataTypeImportMapping storeDatatype="YESNO" mirDatatype="SQL_BOOLEAN"/>
+				</Import>
+				<Export>
+                    <DataTypeExportMapping mirDatatype="undefined" storeDatatype="Text" hasLength="true"/>
+                    <DataTypeExportMapping mirDatatype="AUTOINCREMENT" storeDatatype="AutoNumber">
+						<DataTypeExportOption nativeType="Counter" storeDatatype="Counter"/>
+                    </DataTypeExportMapping>
+                    <DataTypeExportMapping mirDatatype="SQL_BIGINT" storeDatatype="Long Integer"/>
+                    <DataTypeExportMapping mirDatatype="SQL_BINARY" storeDatatype="OLE" hasLength="true">
+						<DataTypeExportOption nativeType="Replication ID" storeDatatype="Replication ID"/>
+                    </DataTypeExportMapping>
+                    <DataTypeExportMapping mirDatatype="SQL_BLOB" storeDatatype="OLE Object" hasLength="true"/>
+                    <DataTypeExportMapping mirDatatype="SQL_BOOLEAN" storeDatatype="Yes/No"/>
+                    <DataTypeExportMapping mirDatatype="SQL_CHAR" storeDatatype="Text" hasLength="true"/>
+                    <DataTypeExportMapping mirDatatype="SQL_CLOB" storeDatatype="Memo"/>
+                    <DataTypeExportMapping mirDatatype="SQL_DATALINK" storeDatatype="Text" hasLength="true"/>
+                    <DataTypeExportMapping mirDatatype="SQL_DATE" storeDatatype="Date/Time"/>
+                    <DataTypeExportMapping mirDatatype="SQL_DECIMAL" storeDatatype="Number"/>
+                    <DataTypeExportMapping mirDatatype="SQL_DOUBLE" storeDatatype="Double"/>
+                    <DataTypeExportMapping mirDatatype="SQL_FLOAT" storeDatatype="Single"/>
+                    <DataTypeExportMapping mirDatatype="SQL_INTEGER" storeDatatype="Integer">
+                        <!-- alternate mappings, see Import -->
+                        <DataTypeExportOption nativeType="Long Integer" storeDatatype="Long Integer"/>
+                        <DataTypeExportOption nativeType="LongInteger" storeDatatype="LongInteger"/>
+                    </DataTypeExportMapping>
+                    <DataTypeExportMapping mirDatatype="SQL_INTERVAL_DAY" storeDatatype="Date/Time"/>
+					<DataTypeExportMapping mirDatatype="SQL_INTERVAL_DAY_TO_HOUR" storeDatatype="Date/Time"/>
+                    <DataTypeExportMapping mirDatatype="SQL_INTERVAL_DAY_TO_MINUTE" storeDatatype="Date/Time"/>
+                    <DataTypeExportMapping mirDatatype="SQL_INTERVAL_DAY_TO_SECOND" storeDatatype="Date/Time"/>
+                    <DataTypeExportMapping mirDatatype="SQL_INTERVAL_HOUR" storeDatatype="Date/Time"/>
+                    <DataTypeExportMapping mirDatatype="SQL_INTERVAL_HOUR_TO_MINUTE" storeDatatype="Date/Time"/>
+                    <DataTypeExportMapping mirDatatype="SQL_INTERVAL_HOUR_TO_SECOND" storeDatatype="Date/Time"/>
+                    <DataTypeExportMapping mirDatatype="SQL_INTERVAL_MINUTE" storeDatatype="Date/Time"/>
+                    <DataTypeExportMapping mirDatatype="SQL_INTERVAL_MINUTE_TO_SECOND" storeDatatype="Date/Time"/>
+                    <DataTypeExportMapping mirDatatype="SQL_INTERVAL_MONTH" storeDatatype="Date/Time"/>
+                    <DataTypeExportMapping mirDatatype="SQL_INTERVAL_SECOND" storeDatatype="Date/Time"/>
+                    <DataTypeExportMapping mirDatatype="SQL_INTERVAL_YEAR" storeDatatype="Date/Time"/>
+                    <DataTypeExportMapping mirDatatype="SQL_INTERVAL_YEAR_TO_MONTH" storeDatatype="Date/Time"/>
+                    <DataTypeExportMapping mirDatatype="SQL_LONGVARBINARY" storeDatatype="OLE Object" hasLength="true"/>
+                    <DataTypeExportMapping mirDatatype="SQL_LONGVARCHAR" storeDatatype="Memo">
+						<DataTypeExportOption nativeType="Hyperlink" storeDatatype="Hyperlink"/>
+                    </DataTypeExportMapping>
+                    <DataTypeExportMapping mirDatatype="SQL_NCHAR" storeDatatype="Text" hasLength="true"/>
+                    <DataTypeExportMapping mirDatatype="SQL_NCLOB" storeDatatype="Memo"/>
+                    <DataTypeExportMapping mirDatatype="SQL_NLONGVARCHAR" storeDatatype="Memo"/>
+                    <DataTypeExportMapping mirDatatype="SQL_NUMERIC" storeDatatype="Double">
+                        <!-- alternate mappings, see Import -->
+                        <DataTypeExportOption nativeType="Currency" storeDatatype="Currency"/>
+                        <!-- Other mappings for different native types -->
+                        <DataTypeExportOption nativeType="money" storeDatatype="Currency"/>
+                        <DataTypeExportOption nativeType="smallmoney" storeDatatype="Currency"/>
+                    </DataTypeExportMapping>
+                    <DataTypeExportMapping mirDatatype="SQL_NVARCHAR" storeDatatype="Text" hasLength="true"/>
+                    <DataTypeExportMapping mirDatatype="SQL_REAL" storeDatatype="Single"/>
+                    <DataTypeExportMapping mirDatatype="SQL_REF" storeDatatype="Text" hasLength="true"/>
+                    <DataTypeExportMapping mirDatatype="SQL_SMALLINT" storeDatatype="Integer"/>
+                    <DataTypeExportMapping mirDatatype="SQL_TIME" storeDatatype="Date/Time"/>
+                    <DataTypeExportMapping mirDatatype="SQL_TIME_WITH_TIME_ZONE" storeDatatype="Date/Time"/>
+                    <DataTypeExportMapping mirDatatype="SQL_TIMESTAMP" storeDatatype="Date/Time">
+						<DataTypeExportOption nativeType="DateTime" storeDatatype="DateTime"/>
+                    </DataTypeExportMapping>
+                    <DataTypeExportMapping mirDatatype="SQL_TIMESTAMP_WITH_TIME_ZONE" storeDatatype="Date/Time"/>
+                    <DataTypeExportMapping mirDatatype="SQL_TINYINT" storeDatatype="Byte"/>
+                    <DataTypeExportMapping mirDatatype="SQL_VARBINARY" storeDatatype="OLE Object" hasLength="true"/>
+                    <DataTypeExportMapping mirDatatype="SQL_VARCHAR" storeDatatype="Text" hasLength="true"/>
+				</Export>
+			</DataStoreVersion>
+			
+			<!--  2.0.0 -->
+			<!-- No new mappings -->
+			
+			<!--  7.0.0 (Access for Windows 95)-->
+			<DataStoreVersion displayName="7.0 (Access 95)" MajorVersion="7" MinorVersion="0" ReleaseVersion="0">
+				<Import>
+                    <DataTypeImportMapping storeDatatype="ALPHANUMERIC" mirDatatype="SQL_CHAR"/>
+                    <DataTypeImportMapping storeDatatype="AUTOINCREMENT" mirDatatype="AUTOINCREMENT"/>
+                    <DataTypeImportMapping storeDatatype="BINARY" mirDatatype="SQL_BINARY"/>
+                    <DataTypeImportMapping storeDatatype="BIT" mirDatatype="SQL_BOOLEAN"/>
+                    <DataTypeImportMapping storeDatatype="CHAR" mirDatatype="SQL_CHAR"/>
+                    <DataTypeImportMapping storeDatatype="DATE" mirDatatype="SQL_DATE"/>
+                    <DataTypeImportMapping storeDatatype="FLOAT" mirDatatype="SQL_FLOAT"/>
+                    <DataTypeImportMapping storeDatatype="FLOAT4" mirDatatype="SQL_FLOAT"/>
+                    <DataTypeImportMapping storeDatatype="FLOAT8" mirDatatype="SQL_DOUBLE"/>
+                    <DataTypeImportMapping storeDatatype="GENERAL" mirDatatype="SQL_VARBINARY"/>
+                    <DataTypeImportMapping storeDatatype="GUID" mirDatatype="SQL_BINARY"/>
+                    <DataTypeImportMapping storeDatatype="IEEEDOUBLE" mirDatatype="SQL_DOUBLE"/>
+                    <DataTypeImportMapping storeDatatype="IEEESINGLE" mirDatatype="SQL_REAL"/>
+                    <DataTypeImportMapping storeDatatype="INT" mirDatatype="SQL_INTEGER"/>
+                    <DataTypeImportMapping storeDatatype="INTEGER" mirDatatype="SQL_INTEGER"/>
+                    <DataTypeImportMapping storeDatatype="INTEGER1" mirDatatype="SQL_TINYINT"/>
+                    <DataTypeImportMapping storeDatatype="INTEGER2" mirDatatype="SQL_SMALLINT"/>
+                    <DataTypeImportMapping storeDatatype="INTEGER4" mirDatatype="SQL_INTEGER"/>
+                    <DataTypeImportMapping storeDatatype="LOGICAL" mirDatatype="SQL_TINYINT"/>
+                    <DataTypeImportMapping storeDatatype="LOGICAL1" mirDatatype="SQL_BOOLEAN"/>
+                    <DataTypeImportMapping storeDatatype="LONG" mirDatatype="SQL_INTEGER"/>
+                    <DataTypeImportMapping storeDatatype="LONGBINARY" mirDatatype="SQL_LONGVARBINARY"/>
+                    <DataTypeImportMapping storeDatatype="LONGCHAR" mirDatatype="SQL_LONGVARCHAR"/>
+                    <DataTypeImportMapping storeDatatype="LONGTEXT" mirDatatype="SQL_LONGVARCHAR"/>
+                    <DataTypeImportMapping storeDatatype="MONEY" mirDatatype="SQL_NUMERIC"/>
+                    <DataTypeImportMapping storeDatatype="NOTE" mirDatatype="SQL_VARCHAR"/>
+                    <DataTypeImportMapping storeDatatype="NUMBER" mirDatatype="SQL_NUMERIC"/>
+                    <DataTypeImportMapping storeDatatype="NUMERIC" mirDatatype="SQL_NUMERIC"/>
+                    <DataTypeImportMapping storeDatatype="OLEOBJECT" mirDatatype="SQL_BINARY"/>
+                    <DataTypeImportMapping storeDatatype="REAL" mirDatatype="SQL_REAL"/>
+                    <DataTypeImportMapping storeDatatype="SHORT" mirDatatype="SQL_SMALLINT"/>
+                    <DataTypeImportMapping storeDatatype="SMALLINT" mirDatatype="SQL_SMALLINT"/>
+                    <DataTypeImportMapping storeDatatype="STRING" mirDatatype="SQL_CHAR"/>
+                    <DataTypeImportMapping storeDatatype="TIME" mirDatatype="SQL_TIME"/>
+                    <DataTypeImportMapping storeDatatype="TIMESTAMP" mirDatatype="SQL_TIMESTAMP"/>
+                    <DataTypeImportMapping storeDatatype="VARBINARY" mirDatatype="SQL_VARBINARY"/>
+                    <DataTypeImportMapping storeDatatype="VARCHAR" mirDatatype="SQL_VARCHAR"/>
+				</Import>
+				<Export>
+                    <DataTypeExportMapping mirDatatype="undefined" storeDatatype="varchar" hasLength="true"/>
+					<DataTypeExportMapping mirDatatype="AUTOINCREMENT" storeDatatype="AUTOINCREMENT">
+						<DataTypeExportOption nativeType="AutoNumber" storeDatatype="AutoNumber"/>
+						<DataTypeExportOption nativeType="Counter" storeDatatype="Counter"/>
+					</DataTypeExportMapping>
+					<DataTypeExportMapping mirDatatype="SQL_BINARY" storeDatatype="BINARY" hasLength="true">
+						<DataTypeExportOption nativeType="OLEOBJECT" storeDatatype="OLEOBJECT"/>
+						<DataTypeExportOption nativeType="Replication ID" storeDatatype="Replication ID"/>
+						<DataTypeExportOption nativeType="GUID" storeDatatype="GUID"/>
+                    </DataTypeExportMapping>
+                    <DataTypeExportMapping mirDatatype="SQL_BLOB" storeDatatype="VARBINARY" />
+                    <DataTypeExportMapping mirDatatype="SQL_BOOLEAN" storeDatatype="BIT">
+						<DataTypeExportOption nativeType="LOGICAL1" storeDatatype="LOGICAL1"/>
+						<DataTypeExportOption nativeType="YESNO" storeDatatype="YESNO"/>
+						<DataTypeExportOption nativeType="Yes/No" storeDatatype="Yes/No"/>
+                    </DataTypeExportMapping>
+                    <DataTypeExportMapping mirDatatype="SQL_CHAR" storeDatatype="ALPHANUMERIC" hasLength="true">
+						<DataTypeExportOption nativeType="CHAR" storeDatatype="CHAR"/>
+						<DataTypeExportOption nativeType="STRING" storeDatatype="STRING"/>
+                    </DataTypeExportMapping>
+                    <DataTypeExportMapping mirDatatype="SQL_DATE" storeDatatype="DATE"/>
+                    <DataTypeExportMapping mirDatatype="SQL_DOUBLE" storeDatatype="Double">
+						<DataTypeExportOption nativeType="FLOAT8" storeDatatype="FLOAT8"/>
+						<DataTypeExportOption nativeType="IEEEDOUBLE" storeDatatype="IEEEDOUBLE"/>
+                    </DataTypeExportMapping>
+                    <DataTypeExportMapping mirDatatype="SQL_FLOAT" storeDatatype="FLOAT">
+						<DataTypeExportOption nativeType="FLOAT4" storeDatatype="FLOAT4"/>
+                    </DataTypeExportMapping>
+                    <DataTypeExportMapping mirDatatype="SQL_INTEGER" storeDatatype="Integer">
+						<DataTypeExportOption nativeType="Long Integer" storeDatatype="Long Integer"/>
+						<DataTypeExportOption nativeType="LongInteger" storeDatatype="LongInteger"/>                    
+						<DataTypeExportOption nativeType="INT" storeDatatype="INT"/>
+						<DataTypeExportOption nativeType="INTEGER4" storeDatatype="INTEGER4"/>
+						<DataTypeExportOption nativeType="INTEGER" storeDatatype="INTEGER"/>
+						<DataTypeExportOption nativeType="LONG" storeDatatype="LONG"/>
+                    </DataTypeExportMapping>
+                    <DataTypeExportMapping mirDatatype="SQL_LONGVARBINARY" storeDatatype="OLE Object"  hasLength="true">
+						<DataTypeExportOption nativeType="LONGBINARY" storeDatatype="LONGBINARY"/>
+                    </DataTypeExportMapping>
+                    <DataTypeExportMapping mirDatatype="SQL_LONGVARCHAR" storeDatatype="LONGCHAR">
+						<DataTypeExportOption nativeType="LONGTEXT" storeDatatype="LONGTEXT"/>
+						<DataTypeExportOption nativeType="Memo" storeDatatype="Memo"/>
+						<DataTypeExportOption nativeType="Hyperlink" storeDatatype="Hyperlink"/>
+                    </DataTypeExportMapping>
+                    <DataTypeExportMapping mirDatatype="SQL_NUMERIC" storeDatatype="NUMERIC" hasLength="true" hasScale="true">
+						<DataTypeExportOption nativeType="NUMBER" storeDatatype="NUMBER"/>
+						<DataTypeExportOption nativeType="MONEY" storeDatatype="MONEY"/>
+						<DataTypeExportOption nativeType="Currency" storeDatatype="Currency"/>
+                        <DataTypeExportOption nativeType="smallmoney" storeDatatype="MONEY"/>
+                    </DataTypeExportMapping>
+                    <DataTypeExportMapping mirDatatype="SQL_REAL" storeDatatype="REAL">
+						<DataTypeExportOption nativeType="Single" storeDatatype="Single"/>
+						<DataTypeExportOption nativeType="IEEESINGLE" storeDatatype="IEEESINGLE"/>
+                    </DataTypeExportMapping>
+                    <DataTypeExportMapping mirDatatype="SQL_SMALLINT" storeDatatype="SMALLINT">
+						<DataTypeExportOption nativeType="INTEGER2" storeDatatype="INTEGER2"/>
+						<DataTypeExportOption nativeType="SHORT" storeDatatype="SHORT"/>
+                    </DataTypeExportMapping>
+                    <DataTypeExportMapping mirDatatype="SQL_TIME" storeDatatype="TIME"/>
+					<DataTypeExportMapping mirDatatype="SQL_TIME_WITH_TIME_ZONE" storeDatatype="TIME"/>	
+					<DataTypeExportMapping mirDatatype="SQL_TIMESTAMP" storeDatatype="TIMESTAMP">
+						<DataTypeExportOption nativeType="Date/Time" storeDatatype="Date/Time"/>
+						<DataTypeExportOption nativeType="DateTime" storeDatatype="DateTime"/>
+					</DataTypeExportMapping>
+					<DataTypeExportMapping mirDatatype="SQL_TIMESTAMP_WITH_TIME_ZONE" storeDatatype="TIMESTAMP"/>
+					<DataTypeExportMapping mirDatatype="SQL_TINYINT" storeDatatype="LOGICAL">
+						<DataTypeExportOption nativeType="INTEGER1" storeDatatype="INTEGER1"/>
+						<DataTypeExportOption nativeType="Byte" storeDatatype="Byte"/>
+                    </DataTypeExportMapping>
+                    <DataTypeExportMapping mirDatatype="SQL_VARBINARY" storeDatatype="GENERAL">
+						<DataTypeExportOption nativeType="VARBINARY" storeDatatype="VARBINARY"/>
+                    </DataTypeExportMapping>
+                    <DataTypeExportMapping mirDatatype="SQL_VARCHAR" storeDatatype="Text" hasLength="true">
+						<DataTypeExportOption nativeType="NOTE" storeDatatype="NOTE"/>
+						<DataTypeExportOption nativeType="VARCHAR" storeDatatype="VARCHAR"/>
+                    </DataTypeExportMapping>
+				</Export>
+			</DataStoreVersion>
+			
+			<!--  8.0.0 (Access 97)  -->
+			<DataStoreVersion displayName="8.0.0 (Access 97)" MajorVersion="8" MinorVersion="0" ReleaseVersion="0">
+				<Import>
+                    <DataTypeImportMapping storeDatatype="Alpha" mirDatatype="SQL_CHAR"/>
+                    <DataTypeImportMapping storeDatatype="BCD" mirDatatype="SQL_DECIMAL"/>
+                    <DataTypeImportMapping storeDatatype="Bytes" mirDatatype="SQL_TINYINT"/>
+                    <DataTypeImportMapping storeDatatype="Decimal" mirDatatype="SQL_DECIMAL"/>
+                    <DataTypeImportMapping storeDatatype="Formatted Memo" mirDatatype="SQL_LONGVARCHAR"/>
+                    <DataTypeImportMapping storeDatatype="Graphic" mirDatatype="SQL_BLOB"/>
+                    <DataTypeImportMapping storeDatatype="OLE" mirDatatype="SQL_LONGVARBINARY"/>
+                    <DataTypeImportMapping storeDatatype="Short Number" mirDatatype="SQL_SMALLINT"/>
+				</Import>
+				<Export>
+                    <DataTypeExportMapping mirDatatype="SQL_BLOB" storeDatatype="VARBINARY">
+                        <!-- alternate mappings, see Import -->
+                        <DataTypeExportOption nativeType="Graphic" storeDatatype="Graphic"/>
+						<!-- various possible alternate mappings -->
+                        <DataTypeExportOption nativeType="Image" storeDatatype="Graphic"/>
+                        <DataTypeExportOption nativeType="Picture" storeDatatype="Graphic"/>
+                        <DataTypeExportOption nativeType="Bitmap" storeDatatype="Graphic"/>
+                    </DataTypeExportMapping>
+                    <DataTypeExportMapping mirDatatype="SQL_CHAR" storeDatatype="Alpha" hasLength="true">
+						<DataTypeExportOption nativeType="ALPHANUMERIC" storeDatatype="ALPHANUMERIC"/>
+						<DataTypeExportOption nativeType="CHAR" storeDatatype="CHAR"/>
+						<DataTypeExportOption nativeType="STRING" storeDatatype="STRING"/>
+                    </DataTypeExportMapping>
+                    <DataTypeExportMapping mirDatatype="SQL_DECIMAL" storeDatatype="Decimal" hasLength="true" hasScale="true">
+						<DataTypeExportOption nativeType="BCD" storeDatatype="BCD"/>
+                    </DataTypeExportMapping>
+                    <DataTypeExportMapping mirDatatype="SQL_LONGVARBINARY" storeDatatype="OLE Object" hasLength="true">
+						<DataTypeExportOption nativeType="LONGBINARY" storeDatatype="LONGBINARY"/>
+						<DataTypeExportOption nativeType="OLE" storeDatatype="OLE"/>
+                    </DataTypeExportMapping>
+                    <DataTypeExportMapping mirDatatype="SQL_LONGVARCHAR" storeDatatype="Formatted Memo">
+						<!-- previous versions mappings -->
+						<DataTypeExportOption nativeType="LONGCHAR" storeDatatype="LONGCHAR"/>
+						<DataTypeExportOption nativeType="LONGTEXT" storeDatatype="LONGTEXT"/>
+						<DataTypeExportOption nativeType="Memo" storeDatatype="Memo"/>
+						<DataTypeExportOption nativeType="Hyperlink" storeDatatype="Hyperlink"/>
+                    </DataTypeExportMapping>
+                    <DataTypeExportMapping mirDatatype="SQL_SMALLINT" storeDatatype="Short Number">
+						<!-- previous versions mappings -->
+						<DataTypeExportOption nativeType="SMALLINT" storeDatatype="SMALLINT"/>
+						<DataTypeExportOption nativeType="INTEGER2" storeDatatype="INTEGER2"/>
+						<DataTypeExportOption nativeType="SHORT" storeDatatype="SHORT"/>
+                    </DataTypeExportMapping>
+                    <DataTypeExportMapping mirDatatype="SQL_TINYINT" storeDatatype="Byte">
+						<!-- previous versions mappings -->
+						<DataTypeExportOption nativeType="Bytes" storeDatatype="Bytes"/>
+						<DataTypeExportOption nativeType="INTEGER1" storeDatatype="INTEGER1"/>
+						<DataTypeExportOption nativeType="LOGICAL" storeDatatype="LOGICAL"/>
+                    </DataTypeExportMapping>
+				</Export>
+			</DataStoreVersion>
+			
+			<!--  9.0.0 (Access 2000)-->
+			<DataStoreVersion displayName="9.0.0 (Access 2000)" MajorVersion="9" MinorVersion="0" ReleaseVersion="0">
+				<Export>
+                    <DataTypeExportMapping mirDatatype="SQL_TINYINT" storeDatatype="Integer">
+						<DataTypeExportOption nativeType="Byte" storeDatatype="Byte"/>
+						<DataTypeExportOption nativeType="Bytes" storeDatatype="Bytes"/>
+						<DataTypeExportOption nativeType="INTEGER1" storeDatatype="INTEGER1"/>
+						<DataTypeExportOption nativeType="LOGICAL" storeDatatype="LOGICAL"/>
+                    </DataTypeExportMapping>
+                    <DataTypeExportMapping mirDatatype="SQL_FLOAT" storeDatatype="Single" hasLength="true">
+						<DataTypeExportOption nativeType="FLOAT" storeDatatype="FLOAT"/>
+						<DataTypeExportOption nativeType="FLOAT4" storeDatatype="FLOAT4"/>
+                    </DataTypeExportMapping>
+				</Export>
+			</DataStoreVersion>
+			<!-- 10.0.0 (Access 2002)-->
+			<!-- no new mappings added -->
+			<!-- 11.0.0 (Access 2003)-->
+				<!-- Access 2003 data types: http://office.microsoft.com/en-gb/access/HP052385181033.aspx 
+					 or http://www.teacherclick.com/access2003/b_3_2_2.htm -->
+			<!-- no new mappings added -->
+			<!-- 12.0.0 (Access 2007)-->
+			<!-- no new mappings added -->
+		</DataStore> <!-- Access -->
+
+		<!-- FoxPro -->
+		<DataStore type="FoxPro" displayName="Microsoft FoxPro Database">
+		<!-- History of FoxPro: http://www.foxprohistory.org/foxprotimeline.htm -->
+			<!-- 2.5.0 -->
+			<DataStoreVersion displayName="2.5.0" MajorVersion="2" MinorVersion="5" ReleaseVersion="0">
+				<Import>
+                    <DataTypeImportMapping storeDatatype="Character" mirDatatype="SQL_CHAR"/>
+                    <DataTypeImportMapping storeDatatype="Date" mirDatatype="SQL_DATE"/>
+                    <DataTypeImportMapping storeDatatype="Float" mirDatatype="SQL_FLOAT"/>
+                    <DataTypeImportMapping storeDatatype="Logical" mirDatatype="SQL_BOOLEAN"/>
+                    <DataTypeImportMapping storeDatatype="Memo" mirDatatype="SQL_LONGVARCHAR"/>
+                    <DataTypeImportMapping storeDatatype="Numeric" mirDatatype="SQL_NUMERIC"/>
+					<!-- Following mapping uses PowerDesigner 6.0 only -->
+                    <DataTypeImportMapping storeDatatype="B" mirDatatype="SQL_REAL"/>
+                    <DataTypeImportMapping storeDatatype="C" mirDatatype="SQL_CHAR"/>
+                    <DataTypeImportMapping storeDatatype="D" mirDatatype="SQL_DATE"/>
+                    <DataTypeImportMapping storeDatatype="F" mirDatatype="SQL_REAL"/>
+                    <DataTypeImportMapping storeDatatype="G" mirDatatype="SQL_LONGVARBINARY"/>
+                    <DataTypeImportMapping storeDatatype="I" mirDatatype="SQL_INTEGER"/>
+                    <DataTypeImportMapping storeDatatype="L" mirDatatype="SQL_BOOLEAN"/>
+                    <DataTypeImportMapping storeDatatype="M NOCPTRANS" mirDatatype="SQL_VARBINARY"/>
+                    <DataTypeImportMapping storeDatatype="M" mirDatatype="SQL_VARCHAR"/>
+                    <DataTypeImportMapping storeDatatype="N" mirDatatype="SQL_NUMERIC"/>
+                    <DataTypeImportMapping storeDatatype="P" mirDatatype="SQL_VARBINARY"/>
+                    <DataTypeImportMapping storeDatatype="T" mirDatatype="SQL_TIMESTAMP"/>
+                    <DataTypeImportMapping storeDatatype="Y" mirDatatype="SQL_NUMERIC"/>
+				</Import>
+				<Export>
+                    <DataTypeExportMapping mirDatatype="undefined" storeDatatype="Character" hasLength="true"/>
+                    <DataTypeExportMapping mirDatatype="AUTOINCREMENT" storeDatatype="Numeric" hasLength="true" hasScale="true"/>
+                    <DataTypeExportMapping mirDatatype="SQL_BIGINT" storeDatatype="Numeric" hasLength="true" hasScale="true"/>
+                    <DataTypeExportMapping mirDatatype="SQL_BINARY" storeDatatype="Memo"/>
+                    <DataTypeExportMapping mirDatatype="SQL_BLOB" storeDatatype="Memo"/>
+                    <DataTypeExportMapping mirDatatype="SQL_BOOLEAN" storeDatatype="Logical"/>
+                    <DataTypeExportMapping mirDatatype="SQL_CHAR" storeDatatype="Character" hasLength="true"/>
+                    <DataTypeExportMapping mirDatatype="SQL_CLOB" storeDatatype="Character" hasLength="true"/>
+                    <DataTypeExportMapping mirDatatype="SQL_DATALINK" storeDatatype="Character" hasLength="true"/>
+                    <DataTypeExportMapping mirDatatype="SQL_DATE" storeDatatype="Date"/>
+                    <DataTypeExportMapping mirDatatype="SQL_DECIMAL" storeDatatype="Numeric" hasLength="true" hasScale="true"/>
+                    <DataTypeExportMapping mirDatatype="SQL_DOUBLE" storeDatatype="Numeric" hasLength="true" hasScale="true"/>
+                    <DataTypeExportMapping mirDatatype="SQL_FLOAT" storeDatatype="Float" hasLength="true" hasScale="true"/>
+                    <DataTypeExportMapping mirDatatype="SQL_INTEGER" storeDatatype="Numeric" hasLength="true" hasScale="true"/>
+                    <DataTypeExportMapping mirDatatype="SQL_INTERVAL_DAY" storeDatatype="Date"/>
+                    <DataTypeExportMapping mirDatatype="SQL_INTERVAL_DAY_TO_HOUR" storeDatatype="Date"/>
+                    <DataTypeExportMapping mirDatatype="SQL_INTERVAL_DAY_TO_MINUTE" storeDatatype="Date"/>
+                    <DataTypeExportMapping mirDatatype="SQL_INTERVAL_DAY_TO_SECOND" storeDatatype="Date"/>
+                    <DataTypeExportMapping mirDatatype="SQL_INTERVAL_HOUR" storeDatatype="Date"/>
+                    <DataTypeExportMapping mirDatatype="SQL_INTERVAL_HOUR_TO_MINUTE" storeDatatype="Date"/>
+                    <DataTypeExportMapping mirDatatype="SQL_INTERVAL_HOUR_TO_SECOND" storeDatatype="Date"/>
+                    <DataTypeExportMapping mirDatatype="SQL_INTERVAL_MINUTE" storeDatatype="Date"/>
+                    <DataTypeExportMapping mirDatatype="SQL_INTERVAL_MINUTE_TO_SECOND" storeDatatype="Date"/>
+                    <DataTypeExportMapping mirDatatype="SQL_INTERVAL_MONTH" storeDatatype="Date"/>
+                    <DataTypeExportMapping mirDatatype="SQL_INTERVAL_SECOND" storeDatatype="Date"/>
+                    <DataTypeExportMapping mirDatatype="SQL_INTERVAL_YEAR" storeDatatype="Date"/>
+                    <DataTypeExportMapping mirDatatype="SQL_INTERVAL_YEAR_TO_MONTH" storeDatatype="Date"/>
+                    <DataTypeExportMapping mirDatatype="SQL_LONGVARBINARY" storeDatatype="Memo"/>
+                    <DataTypeExportMapping mirDatatype="SQL_LONGVARCHAR" storeDatatype="Character" hasLength="true">
+                        <!-- alternate mappings, see Import -->
+                        <DataTypeExportOption nativeType="Memo" storeDatatype="Memo"/>
+                    </DataTypeExportMapping>
+                    <DataTypeExportMapping mirDatatype="SQL_NCHAR" storeDatatype="Character" hasLength="true"/>
+                    <DataTypeExportMapping mirDatatype="SQL_NCLOB" storeDatatype="Character" hasLength="true"/>
+                    <DataTypeExportMapping mirDatatype="SQL_NLONGVARCHAR" storeDatatype="Character" hasLength="true"/>
+                    <DataTypeExportMapping mirDatatype="SQL_NUMERIC" storeDatatype="Numeric" hasLength="true" hasScale="true"/>
+                    <DataTypeExportMapping mirDatatype="SQL_NVARCHAR" storeDatatype="Character" hasLength="true"/>
+                    <DataTypeExportMapping mirDatatype="SQL_REAL" storeDatatype="Float" hasLength="true" hasScale="true"/>
+                    <DataTypeExportMapping mirDatatype="SQL_REF" storeDatatype="Numeric" hasLength="true" hasScale="true"/>
+                    <DataTypeExportMapping mirDatatype="SQL_SMALLINT" storeDatatype="Numeric" hasLength="true" hasScale="true"/>
+                    <DataTypeExportMapping mirDatatype="SQL_TIME" storeDatatype="Date"/>
+                    <DataTypeExportMapping mirDatatype="SQL_TIME_WITH_TIME_ZONE" storeDatatype="Date"/>
+                    <DataTypeExportMapping mirDatatype="SQL_TIMESTAMP" storeDatatype="Date"/>
+                    <DataTypeExportMapping mirDatatype="SQL_TIMESTAMP_WITH_TIME_ZONE" storeDatatype="Date"/>
+                    <DataTypeExportMapping mirDatatype="SQL_TINYINT" storeDatatype="Numeric" hasLength="true" hasScale="true"/>
+                    <DataTypeExportMapping mirDatatype="SQL_VARBINARY" storeDatatype="Memo"/>
+                    <DataTypeExportMapping mirDatatype="SQL_VARCHAR" storeDatatype="Character" hasLength="true"/>
+				</Export>
+			</DataStoreVersion>
+		</DataStore> <!-- FoxPro -->
+
+		<!-- MS XML XSD -->
+		<DataStore type="MS XML XSD" displayName="Microsoft XML XSD">
+			<DataStoreVersion displayName="1.0.0" MajorVersion="1" MinorVersion="0" ReleaseVersion="0">
+				<Import>
+					<DataTypeImportMapping storeDatatype="entity" mirDatatype="SQL_VARCHAR"/>
+					<DataTypeImportMapping storeDatatype="entities" mirDatatype="SQL_VARCHAR"/>
+					<DataTypeImportMapping storeDatatype="id" mirDatatype="SQL_VARCHAR"/>
+					<DataTypeImportMapping storeDatatype="idref" mirDatatype="SQL_VARCHAR"/>
+					<DataTypeImportMapping storeDatatype="idrefs" mirDatatype="SQL_VARCHAR"/>
+					<DataTypeImportMapping storeDatatype="nmtoken" mirDatatype="SQL_VARCHAR"/>
+					<DataTypeImportMapping storeDatatype="nmtokens" mirDatatype="SQL_VARCHAR"/>
+					<DataTypeImportMapping storeDatatype="enumeration" mirDatatype="SQL_VARCHAR"/>
+					<DataTypeImportMapping storeDatatype="uuid" mirDatatype="SQL_VARCHAR"/>
+					<DataTypeImportMapping storeDatatype="uri" mirDatatype="SQL_VARCHAR"/>
+					<DataTypeImportMapping storeDatatype="notation" mirDatatype="SQL_VARCHAR"/>
+					<DataTypeImportMapping storeDatatype="string" mirDatatype="SQL_VARCHAR"/> <!-- This & below are better supported -->
+					<DataTypeImportMapping storeDatatype="CDATA" mirDatatype="SQL_VARCHAR"/>
+					<DataTypeImportMapping storeDatatype="char" mirDatatype="SQL_CHAR"/>
+					<DataTypeImportMapping storeDatatype="bin.hex" mirDatatype="SQL_BINARY"/>
+					<DataTypeImportMapping storeDatatype="bin.base64" mirDatatype="SQL_BINARY"/>
+					<DataTypeImportMapping storeDatatype="dateTime" mirDatatype="SQL_TIMESTAMP"/>
+					<DataTypeImportMapping storeDatatype="dateTime.tz" mirDatatype="SQL_TIMESTAMP"/>
+					<DataTypeImportMapping storeDatatype="date" mirDatatype="SQL_DATE"/>
+					<DataTypeImportMapping storeDatatype="time" mirDatatype="SQL_TIME"/>
+					<DataTypeImportMapping storeDatatype="time.tz" mirDatatype="SQL_TIME"/>
+					<DataTypeImportMapping storeDatatype="boolean" mirDatatype="SQL_BOOLEAN"/>
+					<DataTypeImportMapping storeDatatype="i1" mirDatatype="SQL_TINYINT"/>
+					<DataTypeImportMapping storeDatatype="ui1" mirDatatype="SQL_TINYINT"/>
+					<DataTypeImportMapping storeDatatype="i2" mirDatatype="SQL_SMALLINT"/>
+					<DataTypeImportMapping storeDatatype="ui2" mirDatatype="SQL_SMALLINT"/>
+					<DataTypeImportMapping storeDatatype="i4" mirDatatype="SQL_INTEGER"/>
+					<DataTypeImportMapping storeDatatype="ui4" mirDatatype="SQL_INTEGER"/>
+					<DataTypeImportMapping storeDatatype="i8" mirDatatype="SQL_BIGINT"/>
+					<DataTypeImportMapping storeDatatype="ui8" mirDatatype="SQL_BIGINT"/>
+					<DataTypeImportMapping storeDatatype="int" mirDatatype="SQL_INTEGER"/>
+					<DataTypeImportMapping storeDatatype="number" mirDatatype="SQL_NUMERIC"/>
+					<DataTypeImportMapping storeDatatype="fixed.14.4" mirDatatype="SQL_REAL"/>
+					<DataTypeImportMapping storeDatatype="r4" mirDatatype="SQL_REAL"/>
+					<DataTypeImportMapping storeDatatype="r8" mirDatatype="SQL_REAL"/>
+					<DataTypeImportMapping storeDatatype="float" mirDatatype="SQL_FLOAT"/>
+				</Import>
+			</DataStoreVersion>
+		</DataStore> <!-- MS XML XSD -->
+		
+		<!-- MS ActiveX Data Objects -->
+		<DataStore type="MS ADO" displayName="Microsoft ActiveX Data Objects">
+			<!-- As implemented in msado15.dll and msado21.dll -->
+			<DataStoreVersion displayName="1.0.0" MajorVersion="1" MinorVersion="0" ReleaseVersion="0">
+				<Import>
+					<DataTypeImportMapping storeDatatype="0" mirDatatype="undefined" displayName="Empty"/>
+					<DataTypeImportMapping storeDatatype="16" mirDatatype="SQL_TINYINT" displayName="TinyInt"/>
+					<DataTypeImportMapping storeDatatype="2" mirDatatype="SQL_SMALLINT" displayName="SmallInt"/>
+					<DataTypeImportMapping storeDatatype="3" mirDatatype="SQL_INTEGER" displayName="Integer"/>
+					<DataTypeImportMapping storeDatatype="20" mirDatatype="SQL_BIGINT" displayName="BigInt"/>
+					<DataTypeImportMapping storeDatatype="17" mirDatatype="SQL_TINYINT" displayName="UnsignedTinyInt"/>
+					<DataTypeImportMapping storeDatatype="18" mirDatatype="SQL_SMALLINT" displayName="UnsignedSmallInt"/>
+					<DataTypeImportMapping storeDatatype="19" mirDatatype="SQL_INTEGER" displayName="UnsignedInt"/>
+					<DataTypeImportMapping storeDatatype="21" mirDatatype="SQL_BIGINT" displayName="UnsignedBigInt"/>
+					<DataTypeImportMapping storeDatatype="4" mirDatatype="SQL_REAL" displayName="Single"/>
+					<DataTypeImportMapping storeDatatype="5" mirDatatype="SQL_DOUBLE" displayName="Double"/>
+					<DataTypeImportMapping storeDatatype="6" mirDatatype="SQL_NUMERIC" displayName="Currency"/>
+					<DataTypeImportMapping storeDatatype="14" mirDatatype="SQL_DECIMAL" displayName="Decimal"/>
+					<DataTypeImportMapping storeDatatype="131" mirDatatype="SQL_NUMERIC" displayName="Numeric"/>
+					<DataTypeImportMapping storeDatatype="11" mirDatatype="SQL_BOOLEAN" displayName="Boolean"/>
+					<DataTypeImportMapping storeDatatype="10" mirDatatype="undefined" displayName="Error"/>
+					<DataTypeImportMapping storeDatatype="132" mirDatatype="undefined" displayName="UserDefined"/>
+					<DataTypeImportMapping storeDatatype="12" mirDatatype="undefined" displayName="Variant"/> 
+					<DataTypeImportMapping storeDatatype="9" mirDatatype="undefined" displayName="IDispatch"/> 
+					<DataTypeImportMapping storeDatatype="13" mirDatatype="undefined" displayName="IUnknown"/> 
+					<DataTypeImportMapping storeDatatype="72" mirDatatype="undefined" displayName="GUID"/> 
+					<DataTypeImportMapping storeDatatype="7" mirDatatype="SQL_DATE" displayName="Date"/> 
+					<DataTypeImportMapping storeDatatype="133" mirDatatype="SQL_DATE" displayName="DBDate"/> 
+					<DataTypeImportMapping storeDatatype="134" mirDatatype="SQL_TIME" displayName="DBTime"/> 
+					<DataTypeImportMapping storeDatatype="135" mirDatatype="SQL_TIMESTAMP" displayName="DBTimeStamp"/> 
+					<DataTypeImportMapping storeDatatype="8" mirDatatype="SQL_CHAR" displayName="BSTR"/> 
+					<DataTypeImportMapping storeDatatype="129" mirDatatype="SQL_CHAR" displayName="Char"/> 
+					<DataTypeImportMapping storeDatatype="200" mirDatatype="SQL_VARCHAR" displayName="VarChar"/> 
+					<DataTypeImportMapping storeDatatype="201" mirDatatype="SQL_LONGVARCHAR" displayName="LongVarChar"/> 
+					<DataTypeImportMapping storeDatatype="130" mirDatatype="SQL_NCHAR" displayName="WChar"/> 
+					<DataTypeImportMapping storeDatatype="202" mirDatatype="SQL_NVARCHAR" displayName="VarWChar"/> 
+					<DataTypeImportMapping storeDatatype="203" mirDatatype="SQL_NLONGVARCHAR" displayName="LongVarWChar"/> 
+					<DataTypeImportMapping storeDatatype="128" mirDatatype="SQL_BINARY" displayName="Binary"/> 
+					<DataTypeImportMapping storeDatatype="204" mirDatatype="SQL_VARBINARY" displayName="VarBinary"/> 
+					<DataTypeImportMapping storeDatatype="205" mirDatatype="SQL_LONGVARBINARY" displayName="LongVarBinary"/> 
+					<DataTypeImportMapping storeDatatype="136" mirDatatype="undefined" displayName="Chapter"/> 
+					<DataTypeImportMapping storeDatatype="64" mirDatatype="undefined" displayName="FileTime"/> 
+					<DataTypeImportMapping storeDatatype="137" mirDatatype="undefined" displayName="DBFileTime"/> 
+					<DataTypeImportMapping storeDatatype="138" mirDatatype="undefined" displayName="PropVariant"/> 
+					<DataTypeImportMapping storeDatatype="139" mirDatatype="SQL_NUMERIC" displayName="VarNumeric"/> 
+					<DataTypeImportMapping storeDatatype="8192" mirDatatype="SQL_VARCHAR" displayName="Array"/> 
+				</Import>
+			</DataStoreVersion>
+		</DataStore> <!-- MS ActiveX Data Objects -->
+
+	</Tool> <!-- MIRGENERIC -->
+</DataTypeConverter>

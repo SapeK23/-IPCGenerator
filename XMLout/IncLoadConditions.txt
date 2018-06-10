@@ -1,0 +1,13 @@
+// Delta 
+Expression Transformation port:
+v_SetLastCreateDate string (10, 0) SETMAXVARIABLE($$s_LastCreateDate,(TO_CHAR(CreateDate, 'YYYY-MM-DD HH24:MI:SS.US')))
+
+SQ filter value:
+Customer.CreateDate > CONVERT(DATETIME, '$$s_LastCreateDate', 121)
+
+Mapping variable definition:
+$$s_LastCreateDate string (255) 1900-01-01 00:00:00.000
+
+/*
+Customer.CreateDate > CONVERT(DATETIME, '$$mpp_LastCreateDate', 121)
+*/

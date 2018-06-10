@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<!DOCTYPE POWERMART SYSTEM "powrmart.dtd">
+<POWERMART CREATION_DATE="" REPOSITORY_VERSION="">
+  <REPOSITORY NAME="INFA_REP_DEV" VERSION="" CODEPAGE="MS1252" DATABASETYPE="">
+    <FOLDER NAME="Generator" GROUP="" OWNER="Administrator" SHARED="NOTSHARED" DESCRIPTION="" PERMISSIONS="" UUID="">
+      <SOURCE BUSINESSNAME="" DATABASETYPE="Microsoft SQL Server" DBDNAME="SQL_MALTAVM1_AdventureWorks2012" DESCRIPTION="" NAME="SalesPersonQuotaHistory" OBJECTVERSION="1" OWNERNAME="Sales" VERSIONNUMBER="1">
+        <SOURCEFIELD BUSINESSNAME="" DATATYPE="int" DESCRIPTION="" FIELDNUMBER="1" FIELDPROPERTY="0" FIELDTYPE="ELEMITEM" HIDDEN="NO" KEYTYPE="NOT A KEY" LENGTH="0" LEVEL="0" NAME="BusinessEntityID" NULLABLE="NOTNULL" OCCURS="0" OFFSET="0" PHYSICALLENGTH="10" PHYSICALOFFSET="0" PICTURETEXT="" PRECISION="10" SCALE="0" USAGE_FLAGS="" />
+        <SOURCEFIELD BUSINESSNAME="" DATATYPE="datetime" DESCRIPTION="" FIELDNUMBER="2" FIELDPROPERTY="0" FIELDTYPE="ELEMITEM" HIDDEN="NO" KEYTYPE="NOT A KEY" LENGTH="0" LEVEL="0" NAME="QuotaDate" NULLABLE="NOTNULL" OCCURS="0" OFFSET="0" PHYSICALLENGTH="23" PHYSICALOFFSET="0" PICTURETEXT="" PRECISION="23" SCALE="3" USAGE_FLAGS="" />
+        <SOURCEFIELD BUSINESSNAME="" DATATYPE="money" DESCRIPTION="" FIELDNUMBER="3" FIELDPROPERTY="0" FIELDTYPE="ELEMITEM" HIDDEN="NO" KEYTYPE="NOT A KEY" LENGTH="0" LEVEL="0" NAME="SalesQuota" NULLABLE="NULL" OCCURS="0" OFFSET="0" PHYSICALLENGTH="19" PHYSICALOFFSET="0" PICTURETEXT="" PRECISION="19" SCALE="4" USAGE_FLAGS="" />
+        <SOURCEFIELD BUSINESSNAME="" DATATYPE="varchar" DESCRIPTION="" FIELDNUMBER="4" FIELDPROPERTY="0" FIELDTYPE="ELEMITEM" HIDDEN="NO" KEYTYPE="NOT A KEY" LENGTH="0" LEVEL="0" NAME="rowguid" NULLABLE="NULL" OCCURS="0" OFFSET="0" PHYSICALLENGTH="38" PHYSICALOFFSET="0" PICTURETEXT="" PRECISION="38" SCALE="0" USAGE_FLAGS="" />
+        <SOURCEFIELD BUSINESSNAME="" DATATYPE="datetime" DESCRIPTION="" FIELDNUMBER="5" FIELDPROPERTY="0" FIELDTYPE="ELEMITEM" HIDDEN="NO" KEYTYPE="NOT A KEY" LENGTH="0" LEVEL="0" NAME="ModifiedDate" NULLABLE="NULL" OCCURS="0" OFFSET="0" PHYSICALLENGTH="23" PHYSICALOFFSET="0" PICTURETEXT="" PRECISION="23" SCALE="3" USAGE_FLAGS="" />
+      </SOURCE>
+    </FOLDER>
+  </REPOSITORY>
+  <REPOSITORY NAME="INFA_REP_DEV" VERSION="" CODEPAGE="MS1252" DATABASETYPE="">
+    <FOLDER NAME="Generator" GROUP="" OWNER="Administrator" SHARED="NOTSHARED" DESCRIPTION="" PERMISSIONS="" UUID="">
+      <TARGET BUSINESSNAME="" CONSTRAINT="" DATABASETYPE="Microsoft SQL Server" DESCRIPTION="" NAME="SalesPersonQuotaHistory_diff" OBJECTVERSION="1" TABLEOPTIONS="" VERSIONNUMBER="1">
+        <TARGETFIELD BUSINESSNAME="" DATATYPE="int" DESCRIPTION="" FIELDNUMBER="1" KEYTYPE="PRIMARY KEY" NAME="BusinessEntityID" NULLABLE="NOTNULL" PICTURETEXT="" PRECISION="10" SCALE="0" />
+        <TARGETFIELD BUSINESSNAME="" DATATYPE="datetime" DESCRIPTION="" FIELDNUMBER="2" KEYTYPE="PRIMARY KEY" NAME="QuotaDate" NULLABLE="NOTNULL" PICTURETEXT="" PRECISION="23" SCALE="3" />
+        <TARGETFIELD BUSINESSNAME="" DATATYPE="money" DESCRIPTION="" FIELDNUMBER="3" KEYTYPE="NOT A KEY" NAME="SalesQuota" NULLABLE="NULL" PICTURETEXT="" PRECISION="19" SCALE="4" />
+        <TARGETFIELD BUSINESSNAME="" DATATYPE="varchar" DESCRIPTION="" FIELDNUMBER="4" KEYTYPE="NOT A KEY" NAME="rowguid" NULLABLE="NULL" PICTURETEXT="" PRECISION="38" SCALE="0" />
+        <TARGETFIELD BUSINESSNAME="" DATATYPE="datetime" DESCRIPTION="" FIELDNUMBER="5" KEYTYPE="NOT A KEY" NAME="ModifiedDate" NULLABLE="NULL" PICTURETEXT="" PRECISION="23" SCALE="3" />
+        <TARGETFIELD BUSINESSNAME="" DATATYPE="datetime" DESCRIPTION="" FIELDNUMBER="6" KEYTYPE="NOT A KEY" NAME="AUD_CreateDatetime" NULLABLE="NOTNULL" PICTURETEXT="" PRECISION="23" SCALE="3" />
+        <TARGETFIELD BUSINESSNAME="" DATATYPE="datetime" DESCRIPTION="" FIELDNUMBER="7" KEYTYPE="NOT A KEY" NAME="AUD_LastModDatetime" NULLABLE="NOTNULL" PICTURETEXT="" PRECISION="23" SCALE="3" />
+        <TARGETFIELD BUSINESSNAME="" DATATYPE="bit" DESCRIPTION="" FIELDNUMBER="8" KEYTYPE="NOT A KEY" NAME="AUD_isDeleted" NULLABLE="NOTNULL" PICTURETEXT="" PRECISION="1" SCALE="0" />
+      </TARGET>
+    </FOLDER>
+  </REPOSITORY>
+  <REPOSITORY NAME="INFA_REP_DEV" VERSION="" CODEPAGE="MS1252" DATABASETYPE="">
+    <FOLDER NAME="Generator" GROUP="" OWNER="Administrator" SHARED="NOTSHARED" DESCRIPTION="" PERMISSIONS="" UUID="">
+      <MAPPING DESCRIPTION="" ISVALID="YES" NAME="m_SalesPersonQuotaHistory" OBJECTVERSION="1" VERSIONNUMBER="1">
+        <TRANSFORMATION DESCRIPTION="" NAME="SQ_SalesPersonQuotaHistory" OBJECTVERSION="1" REUSABLE="NO" TYPE="Source Qualifier" VERSIONNUMBER="1">
+          <TRANSFORMFIELD DATATYPE="integer" DEFAULTVALUE="" DESCRIPTION="Sales.SalesPersonQuotaHistory.BusinessEntityID" NAME="BusinessEntityID" PICTURETEXT="" PORTTYPE="INPUT/OUTPUT" PRECISION="10" SCALE="0" />
+          <TRANSFORMFIELD DATATYPE="date/time" DEFAULTVALUE="" DESCRIPTION="Sales.SalesPersonQuotaHistory.QuotaDate" NAME="QuotaDate" PICTURETEXT="" PORTTYPE="INPUT/OUTPUT" PRECISION="29" SCALE="9" />
+          <TRANSFORMFIELD DATATYPE="decimal" DEFAULTVALUE="" DESCRIPTION="Sales.SalesPersonQuotaHistory.SalesQuota" NAME="SalesQuota" PICTURETEXT="" PORTTYPE="INPUT/OUTPUT" PRECISION="19" SCALE="4" />
+          <TRANSFORMFIELD DATATYPE="string" DEFAULTVALUE="" DESCRIPTION="Sales.SalesPersonQuotaHistory.rowguid" NAME="rowguid" PICTURETEXT="" PORTTYPE="INPUT/OUTPUT" PRECISION="38" SCALE="0" />
+          <TRANSFORMFIELD DATATYPE="date/time" DEFAULTVALUE="" DESCRIPTION="Sales.SalesPersonQuotaHistory.ModifiedDate" NAME="ModifiedDate" PICTURETEXT="" PORTTYPE="INPUT/OUTPUT" PRECISION="29" SCALE="9" />
+          <TABLEATTRIBUTE NAME="Sql Query" VALUE="" />
+          <TABLEATTRIBUTE NAME="User Defined Join" VALUE="" />
+          <TABLEATTRIBUTE NAME="Source Filter" VALUE="1 &gt; $$v_Last1" />
+          <TABLEATTRIBUTE NAME="Number Of Sorted Ports" VALUE="0" />
+          <TABLEATTRIBUTE NAME="Tracing Level" VALUE="Normal" />
+          <TABLEATTRIBUTE NAME="Select Distinct" VALUE="NO" />
+          <TABLEATTRIBUTE NAME="Is Partitionable" VALUE="NO" />
+          <TABLEATTRIBUTE NAME="Pre SQL" VALUE="" />
+          <TABLEATTRIBUTE NAME="Post SQL" VALUE="" />
+          <TABLEATTRIBUTE NAME="Output is deterministic" VALUE="NO" />
+          <TABLEATTRIBUTE NAME="Output is repeatable" VALUE="Never" />
+        </TRANSFORMATION>
+        <TRANSFORMATION DESCRIPTION="" NAME="EXP_SalesPersonQuotaHistory" OBJECTVERSION="1" REUSABLE="NO" TYPE="Expression" VERSIONNUMBER="1">
+          <TRANSFORMFIELD DATATYPE="integer" DEFAULTVALUE="" DESCRIPTION="" NAME="BusinessEntityID" PICTURETEXT="" PORTTYPE="INPUT/OUTPUT" PRECISION="10" SCALE="0" />
+          <TRANSFORMFIELD DATATYPE="date/time" DEFAULTVALUE="" DESCRIPTION="" NAME="QuotaDate" PICTURETEXT="" PORTTYPE="INPUT/OUTPUT" PRECISION="29" SCALE="9" />
+          <TRANSFORMFIELD DATATYPE="decimal" DEFAULTVALUE="" DESCRIPTION="" NAME="SalesQuota" PICTURETEXT="" PORTTYPE="INPUT/OUTPUT" PRECISION="19" SCALE="4" />
+          <TRANSFORMFIELD DATATYPE="string" DEFAULTVALUE="" DESCRIPTION="" NAME="rowguid" PICTURETEXT="" PORTTYPE="INPUT/OUTPUT" PRECISION="38" SCALE="0" />
+          <TRANSFORMFIELD DATATYPE="date/time" DEFAULTVALUE="" DESCRIPTION="" NAME="ModifiedDate" PICTURETEXT="" PORTTYPE="INPUT/OUTPUT" PRECISION="29" SCALE="9" />
+          <TRANSFORMFIELD DATATYPE="date/time" DEFAULTVALUE="" DESCRIPTION="" NAME="AUD_CreateDatetime" EXPRESSION="SESSSTARTTIME" EXPRESSIONTYPE="GENERAL" PICTURETEXT="" PORTTYPE="OUTPUT" PRECISION="29" SCALE="9" />
+          <TRANSFORMFIELD DATATYPE="date/time" DEFAULTVALUE="" DESCRIPTION="" NAME="AUD_LastModDatetime" EXPRESSION="SESSSTARTTIME" EXPRESSIONTYPE="GENERAL" PICTURETEXT="" PORTTYPE="OUTPUT" PRECISION="29" SCALE="9" />
+          <TRANSFORMFIELD DATATYPE="string" DEFAULTVALUE="" DESCRIPTION="" NAME="AUD_isDeleted" EXPRESSION="0" EXPRESSIONTYPE="GENERAL" PICTURETEXT="" PORTTYPE="OUTPUT" PRECISION="1" SCALE="0" />
+          <TRANSFORMFIELD DATATYPE="integer" DEFAULTVALUE="" DESCRIPTION="" EXPRESSION="SETMAXVARIABLE($$v_Last1, 1)" EXPRESSIONTYPE="GENERAL" NAME="v_Last1" PICTURETEXT="" PORTTYPE="LOCAL VARIABLE" PRECISION="10" SCALE="0" />
+          <TABLEATTRIBUTE NAME="Tracing Level" VALUE="Normal" />
+        </TRANSFORMATION>
+        <INSTANCE DESCRIPTION="" NAME="SalesPersonQuotaHistory_diff" TRANSFORMATION_NAME="SalesPersonQuotaHistory_diff" TRANSFORMATION_TYPE="Target Definition" TYPE="TARGET">
+          <TABLEATTRIBUTE NAME="Post SQL" VALUE="BEGIN  MERGE [Staging].[sls].[SalesPersonQuotaHistory] AS tgt USING [Staging].[sls].[SalesPersonQuotaHistory_diff] AS src ON ( tgt.[BusinessEntityID] = src.[BusinessEntityID] AND tgt.[QuotaDate] = src.[QuotaDate] ) WHEN MATCHED AND EXISTS (  SELECT  src.[SalesQuota], src.[rowguid], src.[ModifiedDate]  EXCEPT  SELECT  tgt.[SalesQuota], tgt.[rowguid], tgt.[ModifiedDate] ) THEN UPDATE SET [SalesQuota] = src.[SalesQuota] ,[rowguid] = src.[rowguid] ,[ModifiedDate] = src.[ModifiedDate] ,[AUD_LastModDatetime] = src.[AUD_LastModDatetime] WHEN NOT MATCHED BY TARGET THEN INSERT ([BusinessEntityID] ,[QuotaDate] ,[SalesQuota] ,[rowguid] ,[ModifiedDate] ,[AUD_CreateDatetime] ,[AUD_LastModDatetime] ) VALUES (src.[BusinessEntityID] ,src.[QuotaDate] ,src.[SalesQuota] ,src.[rowguid] ,src.[ModifiedDate] ,src.[AUD_CreateDatetime] ,src.[AUD_LastModDatetime] ) WHEN NOT MATCHED BY SOURCE THEN UPDATE  SET [AUD_isDeleted] = 1 ,[AUD_LastModDatetime] = GETDATE()\;  END;" />
+          <TABLEATTRIBUTE NAME="Target Table Name" VALUE="sls.SalesPersonQuotaHistory_diff" />
+        </INSTANCE>
+        <INSTANCE DESCRIPTION="" NAME="SQ_SalesPersonQuotaHistory" REUSABLE="NO" TRANSFORMATION_NAME="SQ_SalesPersonQuotaHistory" TRANSFORMATION_TYPE="Source Qualifier" TYPE="TRANSFORMATION">
+          <ASSOCIATED_SOURCE_INSTANCE NAME="SalesPersonQuotaHistory" />
+        </INSTANCE>
+        <INSTANCE DESCRIPTION="" NAME="EXP_SalesPersonQuotaHistory" REUSABLE="NO" TRANSFORMATION_NAME="EXP_SalesPersonQuotaHistory" TRANSFORMATION_TYPE="Expression" TYPE="TRANSFORMATION" />
+        <INSTANCE DBDNAME="SQL_MALTAVM1_AdventureWorks2012" DESCRIPTION="" NAME="SalesPersonQuotaHistory" TRANSFORMATION_NAME="SalesPersonQuotaHistory" TRANSFORMATION_TYPE="Source Definition" TYPE="SOURCE">
+          <TABLEATTRIBUTE NAME="Source Table Name" VALUE="Sales.SalesPersonQuotaHistory" />
+        </INSTANCE>
+        <CONNECTOR FROMFIELD="BusinessEntityID" FROMINSTANCE="SQ_SalesPersonQuotaHistory" FROMINSTANCETYPE="Source Qualifier" TOFIELD="BusinessEntityID" TOINSTANCE="EXP_SalesPersonQuotaHistory" TOINSTANCETYPE="Expression" />
+        <CONNECTOR FROMFIELD="BusinessEntityID" FROMINSTANCE="SalesPersonQuotaHistory" FROMINSTANCETYPE="Source Definition" TOFIELD="BusinessEntityID" TOINSTANCE="SQ_SalesPersonQuotaHistory" TOINSTANCETYPE="Source Qualifier" />
+        <CONNECTOR FROMFIELD="QuotaDate" FROMINSTANCE="SQ_SalesPersonQuotaHistory" FROMINSTANCETYPE="Source Qualifier" TOFIELD="QuotaDate" TOINSTANCE="EXP_SalesPersonQuotaHistory" TOINSTANCETYPE="Expression" />
+        <CONNECTOR FROMFIELD="QuotaDate" FROMINSTANCE="SalesPersonQuotaHistory" FROMINSTANCETYPE="Source Definition" TOFIELD="QuotaDate" TOINSTANCE="SQ_SalesPersonQuotaHistory" TOINSTANCETYPE="Source Qualifier" />
+        <CONNECTOR FROMFIELD="SalesQuota" FROMINSTANCE="SQ_SalesPersonQuotaHistory" FROMINSTANCETYPE="Source Qualifier" TOFIELD="SalesQuota" TOINSTANCE="EXP_SalesPersonQuotaHistory" TOINSTANCETYPE="Expression" />
+        <CONNECTOR FROMFIELD="SalesQuota" FROMINSTANCE="SalesPersonQuotaHistory" FROMINSTANCETYPE="Source Definition" TOFIELD="SalesQuota" TOINSTANCE="SQ_SalesPersonQuotaHistory" TOINSTANCETYPE="Source Qualifier" />
+        <CONNECTOR FROMFIELD="rowguid" FROMINSTANCE="SQ_SalesPersonQuotaHistory" FROMINSTANCETYPE="Source Qualifier" TOFIELD="rowguid" TOINSTANCE="EXP_SalesPersonQuotaHistory" TOINSTANCETYPE="Expression" />
+        <CONNECTOR FROMFIELD="rowguid" FROMINSTANCE="SalesPersonQuotaHistory" FROMINSTANCETYPE="Source Definition" TOFIELD="rowguid" TOINSTANCE="SQ_SalesPersonQuotaHistory" TOINSTANCETYPE="Source Qualifier" />
+        <CONNECTOR FROMFIELD="ModifiedDate" FROMINSTANCE="SQ_SalesPersonQuotaHistory" FROMINSTANCETYPE="Source Qualifier" TOFIELD="ModifiedDate" TOINSTANCE="EXP_SalesPersonQuotaHistory" TOINSTANCETYPE="Expression" />
+        <CONNECTOR FROMFIELD="ModifiedDate" FROMINSTANCE="SalesPersonQuotaHistory" FROMINSTANCETYPE="Source Definition" TOFIELD="ModifiedDate" TOINSTANCE="SQ_SalesPersonQuotaHistory" TOINSTANCETYPE="Source Qualifier" />
+        <CONNECTOR FROMFIELD="BusinessEntityID" FROMINSTANCE="EXP_SalesPersonQuotaHistory" FROMINSTANCETYPE="Expression" TOFIELD="BusinessEntityID" TOINSTANCE="SalesPersonQuotaHistory_diff" TOINSTANCETYPE="Target Definition" />
+        <CONNECTOR FROMFIELD="QuotaDate" FROMINSTANCE="EXP_SalesPersonQuotaHistory" FROMINSTANCETYPE="Expression" TOFIELD="QuotaDate" TOINSTANCE="SalesPersonQuotaHistory_diff" TOINSTANCETYPE="Target Definition" />
+        <CONNECTOR FROMFIELD="SalesQuota" FROMINSTANCE="EXP_SalesPersonQuotaHistory" FROMINSTANCETYPE="Expression" TOFIELD="SalesQuota" TOINSTANCE="SalesPersonQuotaHistory_diff" TOINSTANCETYPE="Target Definition" />
+        <CONNECTOR FROMFIELD="rowguid" FROMINSTANCE="EXP_SalesPersonQuotaHistory" FROMINSTANCETYPE="Expression" TOFIELD="rowguid" TOINSTANCE="SalesPersonQuotaHistory_diff" TOINSTANCETYPE="Target Definition" />
+        <CONNECTOR FROMFIELD="ModifiedDate" FROMINSTANCE="EXP_SalesPersonQuotaHistory" FROMINSTANCETYPE="Expression" TOFIELD="ModifiedDate" TOINSTANCE="SalesPersonQuotaHistory_diff" TOINSTANCETYPE="Target Definition" />
+        <CONNECTOR FROMFIELD="AUD_CreateDatetime" FROMINSTANCE="EXP_SalesPersonQuotaHistory" FROMINSTANCETYPE="Expression" TOFIELD="AUD_CreateDatetime" TOINSTANCE="SalesPersonQuotaHistory_diff" TOINSTANCETYPE="Target Definition" />
+        <CONNECTOR FROMFIELD="AUD_LastModDatetime" FROMINSTANCE="EXP_SalesPersonQuotaHistory" FROMINSTANCETYPE="Expression" TOFIELD="AUD_LastModDatetime" TOINSTANCE="SalesPersonQuotaHistory_diff" TOINSTANCETYPE="Target Definition" />
+        <CONNECTOR FROMFIELD="AUD_isDeleted" FROMINSTANCE="EXP_SalesPersonQuotaHistory" FROMINSTANCETYPE="Expression" TOFIELD="AUD_isDeleted" TOINSTANCE="SalesPersonQuotaHistory_diff" TOINSTANCETYPE="Target Definition" />
+        <TARGETLOADORDER ORDER="1" TARGETINSTANCE="SalesPersonQuotaHistory_diff" />
+        <MAPPINGVARIABLE AGGFUNCTION="MAX" DATATYPE="integer" DEFAULTVALUE="0" DESCRIPTION="" ISEXPRESSIONVARIABLE="NO" ISPARAM="NO" NAME="$$v_Last1" PRECISION="10" SCALE="0" USERDEFINED="YES" />
+        <ERPINFO />
+      </MAPPING>
+    </FOLDER>
+  </REPOSITORY>
+  <REPOSITORY NAME="INFA_REP_DEV" VERSION="" CODEPAGE="MS1252" DATABASETYPE="">
+    <FOLDER NAME="Generator" GROUP="" OWNER="Administrator" SHARED="NOTSHARED" DESCRIPTION="" PERMISSIONS="" UUID="">
+      <CONFIG DESCRIPTION="Default session configuration object" ISDEFAULT="YES" NAME="default_session_config" VERSIONNUMBER="1">
+        <ATTRIBUTE NAME="Advanced" VALUE="" />
+        <ATTRIBUTE NAME="Constraint based load ordering" VALUE="NO" />
+        <ATTRIBUTE NAME="Cache LOOKUP() function" VALUE="YES" />
+        <ATTRIBUTE NAME="Default buffer block size" VALUE="Auto" />
+        <ATTRIBUTE NAME="Line Sequential buffer length" VALUE="1024" />
+        <ATTRIBUTE NAME="Maximum Memory Allowed For Auto Memory Attributes" VALUE="512MB" />
+        <ATTRIBUTE NAME="Maximum Percentage of Total Memory Allowed For Auto Memory Attributes" VALUE="5" />
+        <ATTRIBUTE NAME="Additional Concurrent Pipelines for Lookup Cache Creation" VALUE="Auto" />
+        <ATTRIBUTE NAME="Custom Properties" VALUE="" />
+        <ATTRIBUTE NAME="Pre-build lookup cache" VALUE="Auto" />
+        <ATTRIBUTE NAME="Optimization Level" VALUE="Medium" />
+        <ATTRIBUTE NAME="DateTime Format String" VALUE="MM/DD/YYYY HH24:MI:SS.US" />
+        <ATTRIBUTE NAME="Pre 85 Timestamp Compatibility" VALUE="NO" />
+        <ATTRIBUTE NAME="Log Options" VALUE="0" />
+        <ATTRIBUTE NAME="Save session log by" VALUE="Session runs" />
+        <ATTRIBUTE NAME="Save session log for these runs" VALUE="0" />
+        <ATTRIBUTE NAME="Session Log File Max Size" VALUE="0" />
+        <ATTRIBUTE NAME="Session Log File Max Time Period" VALUE="0" />
+        <ATTRIBUTE NAME="Maximum Partial Session Log Files" VALUE="1" />
+        <ATTRIBUTE NAME="Writer Commit Statistics Log Frequency" VALUE="1" />
+        <ATTRIBUTE NAME="Writer Commit Statistics Log Interval" VALUE="0" />
+        <ATTRIBUTE NAME="Error handling" VALUE="" />
+        <ATTRIBUTE NAME="Stop on errors" VALUE="0" />
+        <ATTRIBUTE NAME="Override tracing" VALUE="None" />
+        <ATTRIBUTE NAME="On Stored Procedure error" VALUE="Stop" />
+        <ATTRIBUTE NAME="On Pre-session command task error" VALUE="Stop" />
+        <ATTRIBUTE NAME="On Pre-Post SQL error" VALUE="Stop" />
+        <ATTRIBUTE NAME="Enable Recovery" VALUE="NO" />
+        <ATTRIBUTE NAME="Error Log Type" VALUE="None" />
+        <ATTRIBUTE NAME="Error Log Table Name Prefix" VALUE="" />
+        <ATTRIBUTE NAME="Error Log File Name" VALUE="PMError.log" />
+        <ATTRIBUTE NAME="Log Source Row Data" VALUE="NO" />
+        <ATTRIBUTE NAME="Data Column Delimiter" VALUE="|" />
+        <ATTRIBUTE NAME="Partitioning Options" VALUE="" />
+        <ATTRIBUTE NAME="Dynamic Partitioning" VALUE="Disabled" />
+        <ATTRIBUTE NAME="Number of Partitions" VALUE="1" />
+        <ATTRIBUTE NAME="Multiplication Factor" VALUE="Auto" />
+        <ATTRIBUTE NAME="Session on Grid" VALUE="" />
+        <ATTRIBUTE NAME="Is Enabled" VALUE="NO" />
+      </CONFIG>
+      <WORKFLOW DESCRIPTION="" ISENABLED="YES" ISRUNNABLESERVICE="NO" ISSERVICE="NO" ISVALID="YES" NAME="wkf_StagingLoad" REUSABLE_SCHEDULER="NO" SCHEDULERNAME="Scheduler" SERVERNAME="IS_INFA_DEV" SERVER_DOMAINNAME="Domain_Virtual-PC" SUSPEND_ON_ERROR="NO" TASKS_MUST_RUN_ON_SERVER="NO" VERSIONNUMBER="1">
+        <SCHEDULER DESCRIPTION="" NAME="Scheduler" REUSABLE="NO" VERSIONNUMBER="1">
+          <SCHEDULEINFO SCHEDULETYPE="ONDEMAND" />
+        </SCHEDULER>
+        <TASK DESCRIPTION="" NAME="Start" REUSABLE="NO" TYPE="Start" VERSIONNUMBER="1" />
+        <SESSION DESCRIPTION="" ISVALID="YES" MAPPINGNAME="m_SalesPersonQuotaHistory" NAME="ses_SalesPersonQuotaHistory" REUSABLE="NO" SORTORDER="Binary" VERSIONNUMBER="1">
+          <SESSTRANSFORMATIONINST ISREPARTITIONPOINT="YES" PARTITIONTYPE="PASS THROUGH" PIPELINE="1" SINSTANCENAME="SalesPersonQuotaHistory_diff" STAGE="1" TRANSFORMATIONNAME="SalesPersonQuotaHistory_diff" TRANSFORMATIONTYPE="Target Definition" />
+          <SESSTRANSFORMATIONINST ISREPARTITIONPOINT="NO" PIPELINE="0" SINSTANCENAME="SalesPersonQuotaHistory" STAGE="0" TRANSFORMATIONNAME="SalesPersonQuotaHistory" TRANSFORMATIONTYPE="Source Definition" />
+          <SESSTRANSFORMATIONINST ISREPARTITIONPOINT="YES" PARTITIONTYPE="PASS THROUGH" PIPELINE="1" SINSTANCENAME="SQ_SalesPersonQuotaHistory" STAGE="2" TRANSFORMATIONNAME="SQ_SalesPersonQuotaHistory" TRANSFORMATIONTYPE="Source Qualifier" />
+          <SESSTRANSFORMATIONINST ISREPARTITIONPOINT="NO" PIPELINE="1" SINSTANCENAME="EXP_SalesPersonQuotaHistory" STAGE="2" TRANSFORMATIONNAME="EXP_SalesPersonQuotaHistory" TRANSFORMATIONTYPE="Expression">
+            <PARTITION DESCRIPTION="" NAME="Partition #1" />
+          </SESSTRANSFORMATIONINST>
+          <CONFIGREFERENCE REFOBJECTNAME="default_session_config" TYPE="Session config" />
+          <SESSIONEXTENSION NAME="Relational Writer" SINSTANCENAME="SalesPersonQuotaHistory_diff" SUBTYPE="Relational Writer" TRANSFORMATIONTYPE="Target Definition" TYPE="WRITER">
+            <CONNECTIONREFERENCE CNXREFNAME="DB Connection" CONNECTIONNAME="SQL_Sapek_Staging" CONNECTIONNUMBER="1" CONNECTIONSUBTYPE="Microsoft SQL Server" CONNECTIONTYPE="Relational" VARIABLE="" />
+            <ATTRIBUTE NAME="Target load type" VALUE="Bulk" />
+            <ATTRIBUTE NAME="Insert" VALUE="YES" />
+            <ATTRIBUTE NAME="Update as Update" VALUE="YES" />
+            <ATTRIBUTE NAME="Update as Insert" VALUE="NO" />
+            <ATTRIBUTE NAME="Update else Insert" VALUE="NO" />
+            <ATTRIBUTE NAME="Delete" VALUE="YES" />
+            <ATTRIBUTE NAME="Truncate target table option" VALUE="YES" />
+            <ATTRIBUTE NAME="Reject file directory" VALUE="$PMBadFileDir\" />
+            <ATTRIBUTE NAME="Reject filename" VALUE="SalesPersonQuotaHistory_diff1.bad" />
+          </SESSIONEXTENSION>
+          <SESSIONEXTENSION DSQINSTNAME="SQ_SalesPersonQuotaHistory" DSQINSTTYPE="Source Qualifier" NAME="Relational Reader" SINSTANCENAME="SalesPersonQuotaHistory" SUBTYPE="Relational Reader" TRANSFORMATIONTYPE="Source Definition" TYPE="READER" />
+          <SESSIONEXTENSION NAME="Relational Reader" SINSTANCENAME="SQ_SalesPersonQuotaHistory" SUBTYPE="Relational Reader" TRANSFORMATIONTYPE="Source Qualifier" TYPE="READER">
+            <CONNECTIONREFERENCE CNXREFNAME="DB Connection" CONNECTIONNAME="SQL_MALTAVM1_AdventureWorks2012" CONNECTIONNUMBER="1" CONNECTIONSUBTYPE="Microsoft SQL Server" CONNECTIONTYPE="Relational" VARIABLE="" />
+          </SESSIONEXTENSION>
+          <ATTRIBUTE NAME="General Options" VALUE="" />
+          <ATTRIBUTE NAME="Write Backward Compatible Session Log File" VALUE="NO" />
+          <ATTRIBUTE NAME="Session Log File Name" VALUE="ses_SalesPersonQuotaHistory.log" />
+          <ATTRIBUTE NAME="Session Log File directory" VALUE="$PMSessionLogDir\" />
+          <ATTRIBUTE NAME="Parameter Filename" VALUE="" />
+          <ATTRIBUTE NAME="Enable Test Load" VALUE="NO" />
+          <ATTRIBUTE NAME="$Source connection value" VALUE="" />
+          <ATTRIBUTE NAME="$Target connection value" VALUE="" />
+          <ATTRIBUTE NAME="Treat source rows as" VALUE="Insert" />
+          <ATTRIBUTE NAME="Commit Type" VALUE="Target" />
+          <ATTRIBUTE NAME="Commit Interval" VALUE="10000" />
+          <ATTRIBUTE NAME="Commit On End Of File" VALUE="YES" />
+          <ATTRIBUTE NAME="Rollback Transactions on Errors" VALUE="NO" />
+          <ATTRIBUTE NAME="Recovery Strategy" VALUE="Fail task and continue workflow" />
+          <ATTRIBUTE NAME="Java Classpath" VALUE="" />
+          <ATTRIBUTE NAME="Performance" VALUE="" />
+          <ATTRIBUTE NAME="DTM buffer size" VALUE="Auto" />
+          <ATTRIBUTE NAME="Collect performance data" VALUE="NO" />
+          <ATTRIBUTE NAME="Write performance data to repository" VALUE="NO" />
+          <ATTRIBUTE NAME="Incremental Aggregation" VALUE="NO" />
+          <ATTRIBUTE NAME="Enable high precision" VALUE="NO" />
+          <ATTRIBUTE NAME="Session retry on deadlock" VALUE="NO" />
+          <ATTRIBUTE NAME="Pushdown Optimization" VALUE="None" />
+          <ATTRIBUTE NAME="Allow Temporary View for Pushdown" VALUE="NO" />
+          <ATTRIBUTE NAME="Allow Temporary Sequence for Pushdown" VALUE="NO" />
+          <ATTRIBUTE NAME="Allow Pushdown for User Incompatible Connections" VALUE="NO" />
+        </SESSION>
+        <TASKINSTANCE DESCRIPTION="" ISENABLED="YES" NAME="Start" REUSABLE="NO" TASKNAME="Start" TASKTYPE="Start" />
+        <TASKINSTANCE DESCRIPTION="" FAIL_PARENT_IF_INSTANCE_DID_NOT_RUN="NO" FAIL_PARENT_IF_INSTANCE_FAILS="YES" ISENABLED="YES" NAME="ses_SalesPersonQuotaHistory" REUSABLE="NO" TASKNAME="ses_SalesPersonQuotaHistory" TASKTYPE="Session" TREAT_INPUTLINK_AS_AND="YES" />
+        <WORKFLOWLINK CONDITION="" FROMTASK="Start" TOTASK="ses_SalesPersonQuotaHistory" />
+        <WORKFLOWVARIABLE DATATYPE="date/time" DEFAULTVALUE="" DESCRIPTION="The time this task started" ISNULL="NO" ISPERSISTENT="NO" NAME="$Start.StartTime" USERDEFINED="NO" />
+        <WORKFLOWVARIABLE DATATYPE="date/time" DEFAULTVALUE="" DESCRIPTION="The time this task completed" ISNULL="NO" ISPERSISTENT="NO" NAME="$Start.EndTime" USERDEFINED="NO" />
+        <WORKFLOWVARIABLE DATATYPE="integer" DEFAULTVALUE="" DESCRIPTION="Status of this task's execution" ISNULL="NO" ISPERSISTENT="NO" NAME="$Start.Status" USERDEFINED="NO" />
+        <WORKFLOWVARIABLE DATATYPE="integer" DEFAULTVALUE="" DESCRIPTION="Status of the previous task that is not disabled" ISNULL="NO" ISPERSISTENT="NO" NAME="$Start.PrevTaskStatus" USERDEFINED="NO" />
+        <WORKFLOWVARIABLE DATATYPE="integer" DEFAULTVALUE="" DESCRIPTION="Error code for this task's execution" ISNULL="NO" ISPERSISTENT="NO" NAME="$Start.ErrorCode" USERDEFINED="NO" />
+        <WORKFLOWVARIABLE DATATYPE="string" DEFAULTVALUE="" DESCRIPTION="Error message for this task's execution" ISNULL="NO" ISPERSISTENT="NO" NAME="$Start.ErrorMsg" USERDEFINED="NO" />
+        <WORKFLOWVARIABLE DATATYPE="date/time" DEFAULTVALUE="" DESCRIPTION="The time this task started" ISNULL="NO" ISPERSISTENT="NO" NAME="$ses_SalesPersonQuotaHistory.StartTime" USERDEFINED="NO" />
+        <WORKFLOWVARIABLE DATATYPE="date/time" DEFAULTVALUE="" DESCRIPTION="The time this task completed" ISNULL="NO" ISPERSISTENT="NO" NAME="$ses_SalesPersonQuotaHistory.EndTime" USERDEFINED="NO" />
+        <WORKFLOWVARIABLE DATATYPE="integer" DEFAULTVALUE="" DESCRIPTION="Status of this task's execution" ISNULL="NO" ISPERSISTENT="NO" NAME="$ses_SalesPersonQuotaHistory.Status" USERDEFINED="NO" />
+        <WORKFLOWVARIABLE DATATYPE="integer" DEFAULTVALUE="" DESCRIPTION="Status of the previous task that is not disabled" ISNULL="NO" ISPERSISTENT="NO" NAME="$ses_SalesPersonQuotaHistory.PrevTaskStatus" USERDEFINED="NO" />
+        <WORKFLOWVARIABLE DATATYPE="integer" DEFAULTVALUE="" DESCRIPTION="Error code for this task's execution" ISNULL="NO" ISPERSISTENT="NO" NAME="$ses_SalesPersonQuotaHistory.ErrorCode" USERDEFINED="NO" />
+        <WORKFLOWVARIABLE DATATYPE="string" DEFAULTVALUE="" DESCRIPTION="Error message for this task's execution" ISNULL="NO" ISPERSISTENT="NO" NAME="$ses_SalesPersonQuotaHistory.ErrorMsg" USERDEFINED="NO" />
+        <WORKFLOWVARIABLE DATATYPE="integer" DEFAULTVALUE="" DESCRIPTION="Rows successfully read" ISNULL="NO" ISPERSISTENT="NO" NAME="$ses_SalesPersonQuotaHistory.SrcSuccessRows" USERDEFINED="NO" />
+        <WORKFLOWVARIABLE DATATYPE="integer" DEFAULTVALUE="" DESCRIPTION="Rows failed to read" ISNULL="NO" ISPERSISTENT="NO" NAME="$ses_SalesPersonQuotaHistory.SrcFailedRows" USERDEFINED="NO" />
+        <WORKFLOWVARIABLE DATATYPE="integer" DEFAULTVALUE="" DESCRIPTION="Rows successfully loaded" ISNULL="NO" ISPERSISTENT="NO" NAME="$ses_SalesPersonQuotaHistory.TgtSuccessRows" USERDEFINED="NO" />
+        <WORKFLOWVARIABLE DATATYPE="integer" DEFAULTVALUE="" DESCRIPTION="Rows failed to load" ISNULL="NO" ISPERSISTENT="NO" NAME="$ses_SalesPersonQuotaHistory.TgtFailedRows" USERDEFINED="NO" />
+        <WORKFLOWVARIABLE DATATYPE="integer" DEFAULTVALUE="" DESCRIPTION="Total number of transformation errors" ISNULL="NO" ISPERSISTENT="NO" NAME="$ses_SalesPersonQuotaHistory.TotalTransErrors" USERDEFINED="NO" />
+        <WORKFLOWVARIABLE DATATYPE="integer" DEFAULTVALUE="" DESCRIPTION="First error code" ISNULL="NO" ISPERSISTENT="NO" NAME="$ses_SalesPersonQuotaHistory.FirstErrorCode" USERDEFINED="NO" />
+        <WORKFLOWVARIABLE DATATYPE="string" DEFAULTVALUE="" DESCRIPTION="First error message" ISNULL="NO" ISPERSISTENT="NO" NAME="$ses_SalesPersonQuotaHistory.FirstErrorMsg" USERDEFINED="NO" />
+        <ATTRIBUTE NAME="Parameter Filename" VALUE="" />
+        <ATTRIBUTE NAME="Write Backward Compatible Workflow Log File" VALUE="NO" />
+        <ATTRIBUTE NAME="Workflow Log File Name" VALUE="wkf_StagingLoad.log" />
+        <ATTRIBUTE NAME="Workflow Log File Directory" VALUE="$PMWorkflowLogDir\" />
+        <ATTRIBUTE NAME="Save Workflow log by" VALUE="By runs" />
+        <ATTRIBUTE NAME="Save workflow log for these runs" VALUE="0" />
+        <ATTRIBUTE NAME="Service Name" VALUE="" />
+        <ATTRIBUTE NAME="Service Timeout" VALUE="0" />
+        <ATTRIBUTE NAME="Is Service Visible" VALUE="NO" />
+        <ATTRIBUTE NAME="Is Service Protected" VALUE="NO" />
+        <ATTRIBUTE NAME="Fail task after wait time" VALUE="0" />
+        <ATTRIBUTE NAME="Enable HA recovery" VALUE="NO" />
+        <ATTRIBUTE NAME="Automatically recover terminated tasks" VALUE="NO" />
+        <ATTRIBUTE NAME="Service Level Name" VALUE="Default" />
+        <ATTRIBUTE NAME="Allow concurrent run with unique run instance name" VALUE="NO" />
+        <ATTRIBUTE NAME="Allow concurrent run with same run instance name" VALUE="NO" />
+        <ATTRIBUTE NAME="Maximum number of concurrent runs" VALUE="0" />
+        <ATTRIBUTE NAME="Assigned Web Services Hubs" VALUE="" />
+        <ATTRIBUTE NAME="Maximum number of concurrent runs per Hub" VALUE="1000" />
+        <ATTRIBUTE NAME="Expected Service Time" VALUE="1" />
+      </WORKFLOW>
+    </FOLDER>
+  </REPOSITORY>
+</POWERMART>

@@ -1,0 +1,91 @@
+USE ETLRepoDB
+GO 
+
+DECLARE @ETLGenerateVersion varchar(50) = 'MS_GenV3'
+DECLARE @XML nvarchar(max);
+
+/* Generate workflow object */
+exec ipc.usp_GenerateWorkflow @p_ETLGenerateVersion = @ETLGenerateVersion, @OutXML = @XML OUT
+SELECT @XML, len(@XML), cast(@XML AS xml), len(cast(cast(@XML AS xml) AS Varchar))
+
+
+/* Generate IPC object */
+--exec ipc.usp_GenerateAllXML @p_SchemaName = 'Sales', @p_TableName = 'CreditCard', @p_ETLGenerateVersion = @ETLGenerateVersion 
+exec ipc.usp_GenerateAllXML @p_ETLGenerateVersion = @ETLGenerateVersion 
+
+
+
+/* Create Connection */
+exec ipc.usp_GenConnection @p_ETLGenerateVersion = @ETLGenerateVersion 
+
+-- gen metadata
+exec ipc.usp_PrepareMetadata @p_ETLGenerateVersion = @ETLGenerateVersion
+-- select * from ipc.Metadata m
+
+-- source 
+exec ipc.usp_GenerateSource @p_SchemaName = 'Sales', @p_TableName = 'CountryRegionCurrency', @p_ETLGenerateVersion = @ETLGenerateVersion, @OutXML = @XML OUT
+SELECT @XML 
+
+-- target
+exec ipc.usp_GenerateTarget @p_SchemaName = 'Sales', @p_TableName = 'CountryRegionCurrency', @p_ETLGenerateVersion = @ETLGenerateVersion, @OutXML = @XML OUT
+SELECT @XML 
+
+-- mapping CountryRegionCurrency
+exec ipc.usp_GenerateMapping @p_SchemaName = 'Sales', @p_TableName = 'CreditCard', @p_ETLGenerateVersion = @ETLGenerateVersion, @OutXML = @XML OUT
+SELECT @XML 
+
+
+
+<REPOSITORY NAME="INFA_REP_DEV" VERSION="" CODEPAGE="MS1252" DATABASETYPE="">
+<FOLDER NAME="Generator" GROUP="" OWNER="Administrator" SHARED="NOTSHARED" DESCRIPTION="" PERMISSIONS="" UUID="">
+<SOURCE BUSINESSNAME ="" DATABASETYPE ="Microsoft SQL Server" DBDNAME ="SQL_MALTAVM1_AdventureWorks2012" DESCRIPTION ="" NAME ="CountryRegionCurrency" OBJECTVERSION ="1" OWNERNAME ="Sales" VERSIONNUMBER ="1">
+<SOURCEFIELD BUSINESSNAME ="" DATATYPE ="nvarchar" DESCRIPTION ="" FIELDNUMBER ="1" FIELDPROPERTY ="0" FIELDTYPE ="ELEMITEM" HIDDEN ="NO" KEYTYPE ="NOT A KEY" LENGTH ="0" LEVEL ="0" NAME ="CountryRegionCode" NULLABLE ="NOTNULL" OCCURS ="0" OFFSET ="0" PHYSICALLENGTH ="6" PHYSICALOFFSET ="0" PICTURETEXT ="" PRECISION ="6" SCALE ="0" USAGE_FLAGS =""/>
+<SOURCEFIELD BUSINESSNAME ="" DATATYPE ="nchar" DESCRIPTION ="" FIELDNUMBER ="2" FIELDPROPERTY ="0" FIELDTYPE ="ELEMITEM" HIDDEN ="NO" KEYTYPE ="NOT A KEY" LENGTH ="0" LEVEL ="0" NAME ="CurrencyCode" NULLABLE ="NOTNULL" OCCURS ="0" OFFSET ="0" PHYSICALLENGTH ="6" PHYSICALOFFSET ="0" PICTURETEXT ="" PRECISION ="6" SCALE ="0" USAGE_FLAGS =""/>
+<SOURCEFIELD BUSINESSNAME ="" DATATYPE ="datetime" DESCRIPTION ="" FIELDNUMBER ="3" FIELDPROPERTY ="0" FIELDTYPE ="ELEMITEM" HIDDEN ="NO" KEYTYPE ="NOT A KEY" LENGTH ="0" LEVEL ="0" NAME ="ModifiedDate" NULLABLE ="NULL" OCCURS ="0" OFFSET ="0" PHYSICALLENGTH ="23" PHYSICALOFFSET ="0" PICTURETEXT ="" PRECISION ="23" SCALE ="3" USAGE_FLAGS =""/>
+</SOURCE>
+</FOLDER>
+</REPOSITORY>
+
+
+
+
+<REPOSITORY NAME="INFA_REP_DEV" VERSION="" CODEPAGE="MS1252" DATABASETYPE="">
+<FOLDER NAME="Generator" GROUP="" OWNER="Administrator" SHARED="NOTSHARED" DESCRIPTION="" PERMISSIONS="" UUID="">
+<TARGET BUSINESSNAME ="" CONSTRAINT ="" DATABASETYPE ="Microsoft SQL Server" DESCRIPTION ="" NAME ="CountryRegionCurrency" OBJECTVERSION ="1" TABLEOPTIONS ="" VERSIONNUMBER ="1">
+<TARGETFIELD BUSINESSNAME ="" DATATYPE ="nvarchar" DESCRIPTION ="" FIELDNUMBER ="1" KEYTYPE ="PRIMARY KEY" NAME ="CountryRegionCode" NULLABLE ="NOTNULL" PICTURETEXT ="" PRECISION ="0" SCALE ="0" />
+<TARGETFIELD BUSINESSNAME ="" DATATYPE ="nchar" DESCRIPTION ="" FIELDNUMBER ="2" KEYTYPE ="PRIMARY KEY" NAME ="CurrencyCode" NULLABLE ="NOTNULL" PICTURETEXT ="" PRECISION ="0" SCALE ="0" />
+<TARGETFIELD BUSINESSNAME ="" DATATYPE ="datetime" DESCRIPTION ="" FIELDNUMBER ="3" KEYTYPE ="NOT A KEY" NAME ="ModifiedDate" NULLABLE ="NULL" PICTURETEXT ="" PRECISION ="23" SCALE ="3" />
+<TARGETFIELD BUSINESSNAME ="" DATATYPE ="datetime" DESCRIPTION ="" FIELDNUMBER ="4" KEYTYPE ="NOT A KEY" NAME ="AUD_CreateDatetime" NULLABLE ="NOTNULL" PICTURETEXT ="" PRECISION ="23" SCALE ="3" />
+<TARGETFIELD BUSINESSNAME ="" DATATYPE ="datetime" DESCRIPTION ="" FIELDNUMBER ="5" KEYTYPE ="NOT A KEY" NAME ="AUD_LastModDatetime" NULLABLE ="NOTNULL" PICTURETEXT ="" PRECISION ="23" SCALE ="3" />
+<TARGETFIELD BUSINESSNAME ="" DATATYPE ="bit" DESCRIPTION ="" FIELDNUMBER ="6" KEYTYPE ="NOT A KEY" NAME ="AUD_isDeleted" NULLABLE ="NOTNULL" PICTURETEXT ="" PRECISION ="1" SCALE ="0" />
+</TARGET>
+</FOLDER>
+</REPOSITORY>
+
+
+
+<REPOSITORY NAME="INFA_REP_DEV" VERSION="" CODEPAGE="MS1252" DATABASETYPE="">
+<FOLDER NAME="Generator" GROUP="" OWNER="Administrator" SHARED="NOTSHARED" DESCRIPTION="" PERMISSIONS="" UUID="">
+<MAPPING DESCRIPTION ="" ISVALID ="YES" NAME ="m_CountryRegionCurrency" OBJECTVERSION ="1" VERSIONNUMBER ="1">
+<TRANSFORMATION DESCRIPTION ="" NAME ="SQ_CountryRegionCurrency" OBJECTVERSION ="1" REUSABLE ="NO" TYPE ="Source Qualifier" VERSIONNUMBER ="1">
+<TRANSFORMFIELD DATATYPE ="nstring" DEFAULTVALUE ="" DESCRIPTION ="Sales.CountryRegionCurrency.CountryRegionCode" NAME ="CountryRegionCode" PICTURETEXT ="" PORTTYPE ="INPUT/OUTPUT" PRECISION ="6" SCALE ="0"/>
+<TRANSFORMFIELD DATATYPE ="nstring" DEFAULTVALUE ="" DESCRIPTION ="Sales.CountryRegionCurrency.CurrencyCode" NAME ="CurrencyCode" PICTURETEXT ="" PORTTYPE ="INPUT/OUTPUT" PRECISION ="6" SCALE ="0"/>
+<TRANSFORMFIELD DATATYPE ="date/time" DEFAULTVALUE ="" DESCRIPTION ="Sales.CountryRegionCurrency.ModifiedDate" NAME ="ModifiedDate" PICTURETEXT ="" PORTTYPE ="INPUT/OUTPUT" PRECISION ="29" SCALE ="9"/>
+<TABLEATTRIBUTE NAME ="Sql Query" VALUE =""/><TABLEATTRIBUTE NAME ="User Defined Join" VALUE =""/><TABLEATTRIBUTE NAME ="Source Filter" VALUE =""/><TABLEATTRIBUTE NAME ="Number Of Sorted Ports" VALUE ="0"/><TABLEATTRIBUTE NAME ="Tracing Level" VALUE ="Normal"/><TABLEATTRIBUTE NAME ="Select Distinct" VALUE ="NO"/><TABLEATTRIBUTE NAME ="Is Partitionable" VALUE ="NO"/><TABLEATTRIBUTE NAME ="Pre SQL" VALUE =""/><TABLEATTRIBUTE NAME ="Post SQL" VALUE =""/><TABLEATTRIBUTE NAME ="Output is deterministic" VALUE ="NO"/><TABLEATTRIBUTE NAME ="Output is repeatable" VALUE ="Never"/></TRANSFORMATION>
+<TRANSFORMATION DESCRIPTION ="" NAME ="EXP_CountryRegionCurrency" OBJECTVERSION ="1" REUSABLE ="NO" TYPE ="Expression" VERSIONNUMBER ="1">
+<TRANSFORMFIELD DATATYPE ="nstring" DEFAULTVALUE ="" DESCRIPTION ="" NAME ="CountryRegionCode" PICTURETEXT ="" PORTTYPE ="INPUT/OUTPUT" PRECISION ="6" SCALE ="0"/>
+<TRANSFORMFIELD DATATYPE ="nstring" DEFAULTVALUE ="" DESCRIPTION ="" NAME ="CurrencyCode" PICTURETEXT ="" PORTTYPE ="INPUT/OUTPUT" PRECISION ="6" SCALE ="0"/>
+<TRANSFORMFIELD DATATYPE ="date/time" DEFAULTVALUE ="" DESCRIPTION ="" NAME ="ModifiedDate" PICTURETEXT ="" PORTTYPE ="INPUT/OUTPUT" PRECISION ="29" SCALE ="9"/>
+<TRANSFORMFIELD DATATYPE ="date/time" DEFAULTVALUE ="" DESCRIPTION ="" NAME ="AUD_CreateDatetime" PICTURETEXT ="" PORTTYPE ="INPUT/OUTPUT" PRECISION ="29" SCALE ="9"/>
+<TRANSFORMFIELD DATATYPE ="date/time" DEFAULTVALUE ="" DESCRIPTION ="" NAME ="AUD_LastModDatetime" PICTURETEXT ="" PORTTYPE ="INPUT/OUTPUT" PRECISION ="29" SCALE ="9"/>
+<TRANSFORMFIELD DATATYPE ="string" DEFAULTVALUE ="" DESCRIPTION ="" NAME ="AUD_isDeleted" PICTURETEXT ="" PORTTYPE ="INPUT/OUTPUT" PRECISION ="1" SCALE ="0"/>
+<TABLEATTRIBUTE NAME ="Tracing Level" VALUE ="Normal"/></TRANSFORMATION><INSTANCE DESCRIPTION ="" NAME ="" TRANSFORMATION_NAME ="" TRANSFORMATION_TYPE ="Target Definition" TYPE ="TARGET"><TABLEATTRIBUTE NAME ="Target Table Name" VALUE ="sls.CountryRegionCurrency"/></INSTANCE><INSTANCE DESCRIPTION ="" NAME ="SQ_CountryRegionCurrency" REUSABLE ="NO" TRANSFORMATION_NAME ="SQ_CountryRegionCurrency" TRANSFORMATION_TYPE ="Source Qualifier" TYPE ="TRANSFORMATION"><ASSOCIATED_SOURCE_INSTANCE NAME ="CountryRegionCurrency"/></INSTANCE><INSTANCE DESCRIPTION ="" NAME ="EXP_CountryRegionCurrency" REUSABLE ="NO" TRANSFORMATION_NAME ="EXP_CountryRegionCurrency" TRANSFORMATION_TYPE ="Expression" TYPE ="TRANSFORMATION"/><INSTANCE DBDNAME ="AdventureWorks2012" DESCRIPTION ="" NAME ="CountryRegionCurrency" TRANSFORMATION_NAME ="CountryRegionCurrency" TRANSFORMATION_TYPE ="Source Definition" TYPE ="SOURCE"><TABLEATTRIBUTE NAME ="Source Table Name" VALUE ="Sales.CountryRegionCurrency"/></INSTANCE>
+<CONNECTOR FROMFIELD ="CountryRegionCode" FROMINSTANCE ="EXP_CountryRegionCurrency" FROMINSTANCETYPE ="Expression" TOFIELD ="CountryRegionCode" TOINSTANCE ="" TOINSTANCETYPE ="Target Definition"/> <CONNECTOR FROMFIELD ="CountryRegionCode" FROMINSTANCE ="SQ_CountryRegionCurrency" FROMINSTANCETYPE ="Source Qualifier" TOFIELD ="CountryRegionCode" TOINSTANCE ="EXP_CountryRegionCurrency" TOINSTANCETYPE ="Expression"/> <CONNECTOR FROMFIELD ="CountryRegionCode" FROMINSTANCE ="CountryRegionCurrency" FROMINSTANCETYPE ="Source Definition" TOFIELD ="CountryRegionCode" TOINSTANCE ="SQ_CountryRegionCurrency" TOINSTANCETYPE ="Source Qualifier"/>
+<CONNECTOR FROMFIELD ="CurrencyCode" FROMINSTANCE ="EXP_CountryRegionCurrency" FROMINSTANCETYPE ="Expression" TOFIELD ="CurrencyCode" TOINSTANCE ="" TOINSTANCETYPE ="Target Definition"/> <CONNECTOR FROMFIELD ="CurrencyCode" FROMINSTANCE ="SQ_CountryRegionCurrency" FROMINSTANCETYPE ="Source Qualifier" TOFIELD ="CurrencyCode" TOINSTANCE ="EXP_CountryRegionCurrency" TOINSTANCETYPE ="Expression"/> <CONNECTOR FROMFIELD ="CurrencyCode" FROMINSTANCE ="CountryRegionCurrency" FROMINSTANCETYPE ="Source Definition" TOFIELD ="CurrencyCode" TOINSTANCE ="SQ_CountryRegionCurrency" TOINSTANCETYPE ="Source Qualifier"/>
+<CONNECTOR FROMFIELD ="ModifiedDate" FROMINSTANCE ="EXP_CountryRegionCurrency" FROMINSTANCETYPE ="Expression" TOFIELD ="ModifiedDate" TOINSTANCE ="" TOINSTANCETYPE ="Target Definition"/> <CONNECTOR FROMFIELD ="ModifiedDate" FROMINSTANCE ="SQ_CountryRegionCurrency" FROMINSTANCETYPE ="Source Qualifier" TOFIELD ="ModifiedDate" TOINSTANCE ="EXP_CountryRegionCurrency" TOINSTANCETYPE ="Expression"/> <CONNECTOR FROMFIELD ="ModifiedDate" FROMINSTANCE ="CountryRegionCurrency" FROMINSTANCETYPE ="Source Definition" TOFIELD ="ModifiedDate" TOINSTANCE ="SQ_CountryRegionCurrency" TOINSTANCETYPE ="Source Qualifier"/>
+<CONNECTOR FROMFIELD ="AUD_CreateDatetime" FROMINSTANCE ="EXP_CountryRegionCurrency" FROMINSTANCETYPE ="Expression" TOFIELD ="AUD_CreateDatetime" TOINSTANCE ="" TOINSTANCETYPE ="Target Definition"/> <CONNECTOR FROMFIELD ="AUD_CreateDatetime" FROMINSTANCE ="SQ_CountryRegionCurrency" FROMINSTANCETYPE ="Source Qualifier" TOFIELD ="AUD_CreateDatetime" TOINSTANCE ="EXP_CountryRegionCurrency" TOINSTANCETYPE ="Expression"/> <CONNECTOR FROMFIELD ="AUD_CreateDatetime" FROMINSTANCE ="CountryRegionCurrency" FROMINSTANCETYPE ="Source Definition" TOFIELD ="AUD_CreateDatetime" TOINSTANCE ="SQ_CountryRegionCurrency" TOINSTANCETYPE ="Source Qualifier"/>
+<CONNECTOR FROMFIELD ="AUD_LastModDatetime" FROMINSTANCE ="EXP_CountryRegionCurrency" FROMINSTANCETYPE ="Expression" TOFIELD ="AUD_LastModDatetime" TOINSTANCE ="" TOINSTANCETYPE ="Target Definition"/> <CONNECTOR FROMFIELD ="AUD_LastModDatetime" FROMINSTANCE ="SQ_CountryRegionCurrency" FROMINSTANCETYPE ="Source Qualifier" TOFIELD ="AUD_LastModDatetime" TOINSTANCE ="EXP_CountryRegionCurrency" TOINSTANCETYPE ="Expression"/> <CONNECTOR FROMFIELD ="AUD_LastModDatetime" FROMINSTANCE ="CountryRegionCurrency" FROMINSTANCETYPE ="Source Definition" TOFIELD ="AUD_LastModDatetime" TOINSTANCE ="SQ_CountryRegionCurrency" TOINSTANCETYPE ="Source Qualifier"/>
+<CONNECTOR FROMFIELD ="AUD_isDeleted" FROMINSTANCE ="EXP_CountryRegionCurrency" FROMINSTANCETYPE ="Expression" TOFIELD ="AUD_isDeleted" TOINSTANCE ="" TOINSTANCETYPE ="Target Definition"/> <CONNECTOR FROMFIELD ="AUD_isDeleted" FROMINSTANCE ="SQ_CountryRegionCurrency" FROMINSTANCETYPE ="Source Qualifier" TOFIELD ="AUD_isDeleted" TOINSTANCE ="EXP_CountryRegionCurrency" TOINSTANCETYPE ="Expression"/> <CONNECTOR FROMFIELD ="AUD_isDeleted" FROMINSTANCE ="CountryRegionCurrency" FROMINSTANCETYPE ="Source Definition" TOFIELD ="AUD_isDeleted" TOINSTANCE ="SQ_CountryRegionCurrency" TOINSTANCETYPE ="Source Qualifier"/>
+<TARGETLOADORDER ORDER ="1" TARGETINSTANCE =""/><ERPINFO/></MAPPING>
+</FOLDER>
+</REPOSITORY>
